@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tu Diagnóstico Energético - Soul in Motion</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Roboto:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <style>
+      :root {
+        --primary-bg: #0d1117;
+        --secondary-bg: #161b22;
+        --border-color: #30363d;
+        --accent-blue: #58a6ff;
+        --glow-color: rgba(88, 166, 255, 0.5);
+        --text-primary: #c9d1d9;
+        --text-secondary: #8b949e;
+        --font-headline: "Archivo Black", sans-serif;
+        --font-body: "Roboto", sans-serif;
+        --success-color: #3fb950;
+        --success-glow: rgba(63, 185, 80, 0.6);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        width: 100%;
+        overflow-x: hidden;
+        background-color: var(--primary-bg);
+        color: var(--text-primary);
+        font-family: var(--font-body);
+        line-height: 1.6;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800"><circle fill="%230d1117" cx="400" cy="400" r="400"/><g fill-opacity="0.4"><circle fill="%23161b22" cx="400" cy="400" r="300"/><circle fill="%230d1117" cx="400" cy="400" r="200"/><circle fill="%23000" cx="400" cy="400" r="100"/></g></svg>');
+        background-size: cover;
+        opacity: 0.2;
+        z-index: -1;
+        animation: subtleRotate 60s linear infinite;
+      }
+
+      .main-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .header img {
+        max-width: 180px;
+        margin-bottom: 20px;
+      }
+
+      .profile-card {
+        background-color: var(--secondary-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 40px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .profile-card::after {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: conic-gradient(
+          transparent,
+          var(--glow-color),
+          transparent 30%
+        );
+        animation: rotate 10s linear infinite;
+      }
+
+      .profile-card-content {
+        position: relative;
+        z-index: 2;
+        background-color: var(--secondary-bg);
+        padding: 30px;
+        border-radius: 14px;
+      }
+
+      .profile-card .profile-icon {
+        font-size: 3rem;
+        margin-bottom: 15px;
+        animation: pulse 2s infinite ease-in-out;
+      }
+
+      .profile-card h1 {
+        font-family: var(--font-headline);
+        font-size: clamp(2rem, 5vw, 2.8rem);
+        color: white;
+        margin-bottom: 5px;
+        text-transform: uppercase;
+      }
+
+      .profile-card .profile-tagline {
+        font-family: var(--font-body);
+        font-style: italic;
+        font-size: 1.25rem;
+        color: var(--accent-blue);
+        margin-bottom: 30px;
+      }
+
+      .tabs-nav {
+        display: flex;
+        justify-content: center;
+        border-bottom: 1px solid var(--border-color);
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+      }
+
+      .tab-link {
+        font-family: var(--font-body);
+        background: none;
+        border: none;
+        color: var(--text-secondary);
+        padding: 15px 10px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        font-weight: 700;
+        transition: color 0.3s, border-bottom 0.3s;
+        border-bottom: 3px solid transparent;
+        margin-bottom: -1px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      @media (min-width: 600px) {
+        .tab-link {
+          padding: 15px 20px;
+          font-size: 1rem;
+        }
+      }
+
+      .tab-link.active {
+        color: var(--accent-blue);
+        border-bottom: 3px solid var(--accent-blue);
+      }
+
+      .tab-link:hover {
+        color: var(--text-primary);
+      }
+
+      .tab-content {
+        display: none;
+        text-align: left;
+        animation: fadeIn 0.6s ease-out;
+      }
+
+      .tab-content.active {
+        display: block;
+      }
+
+      .tab-content h2 {
+        font-family: var(--font-headline);
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .tab-content p,
+      .tab-content ul,
+      .tab-content .stat-box {
+        font-size: 1.1rem;
+        color: var(--text-primary);
+      }
+
+      .tab-content strong {
+        color: var(--accent-blue);
+        font-weight: 700;
+      }
+
+      .stat-box {
+        background-color: rgba(88, 166, 255, 0.1);
+        border-left: 4px solid var(--accent-blue);
+        padding: 20px;
+        margin: 25px 0;
+        border-radius: 0 8px 8px 0;
+      }
+
+      .plan-steps {
+        list-style: none;
+        padding-left: 0;
+        counter-reset: plan-counter;
+      }
+
+      .plan-steps li {
+        position: relative;
+        padding-left: 50px;
+        margin-bottom: 25px;
+        font-size: 1.1rem;
+      }
+
+      .plan-steps li::before {
+        counter-increment: plan-counter;
+        content: counter(plan-counter);
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 35px;
+        height: 35px;
+        background-image: linear-gradient(45deg, var(--accent-blue), #82c4ff);
+        color: var(--primary-bg);
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        font-weight: 900;
+        font-family: var(--font-body);
+        box-shadow: 0 0 15px var(--glow-color);
+      }
+
+      .cta-section {
+        background: linear-gradient(145deg, #1c2a41, #221c38);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 40px;
+        margin-top: 40px;
+        text-align: center;
+      }
+
+      .cta-section h2 {
+        font-family: var(--font-headline);
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+      }
+
+      .cta-section .cta-subtitle {
+        font-size: 1.1rem;
+        color: var(--success-color);
+        font-weight: 700;
+        margin-bottom: 25px;
+      }
+
+      .cta-button {
+        display: inline-block;
+        background-color: var(--success-color);
+        color: #0d1117;
+        font-family: var(--font-body);
+        font-weight: 900;
+        padding: 18px 40px;
+        border-radius: 50px;
+        text-decoration: none;
+        text-transform: uppercase;
+        border: none;
+        transition: transform 0.2s, box-shadow 0.2s;
+        cursor: pointer;
+        font-size: 1.1rem;
+        box-shadow: 0 4px 20px var(--success-glow);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-button:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 30px var(--success-glow);
+      }
+
+      .footer {
+        text-align: center;
+        padding: 40px 20px 20px;
+        font-size: 0.8rem;
+        color: var(--text-secondary);
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(15px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+          opacity: 0.8;
+        }
+        50% {
+          transform: scale(1.05);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 0.8;
+        }
+      }
+
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes subtleRotate {
+        from {
+          transform: rotate(0deg) scale(1.2);
+        }
+        to {
+          transform: rotate(360deg) scale(1.2);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <header class="header">
+        <img
+          src="https://assets.cdn.filesafe.space/NGuF3af79vlhAyc7PYJN/media/685474d8ad324766e3044744.png"
+          alt="Soul in Motion Logo"
+        />
+      </header>
+
+      <div class="profile-card">
+        <div class="profile-card-content">
+          <div class="profile-icon">🧠</div>
+          <h1>CEO con Ritmo Cortado</h1>
+          <p class="profile-tagline">
+            “Estás rindiendo... pero tu sistema ya se está apagando por dentro.”
+          </p>
+
+          <div class="tabs-nav">
+            <button class="tab-link active" onclick="openTab(event, 'bio')">
+              <i class="fas fa-dna"></i> <span>Bioexplicación</span>
+            </button>
+            <button class="tab-link" onclick="openTab(event, 'consecuencias')">
+              <i class="fas fa-exclamation-triangle"></i>
+              <span>Consecuencias</span>
+            </button>
+            <button class="tab-link" onclick="openTab(event, 'biohack')">
+              <i class="fas fa-pills"></i> <span>Biohack</span>
+            </button>
+            <button class="tab-link" onclick="openTab(event, 'plan')">
+              <i class="fas fa-clipboard-list"></i> <span>Plan de Acción</span>
+            </button>
+          </div>
+
+          <div id="bio" class="tab-content active">
+            <h2><i class="fas fa-brain"></i>Qué está pasando en tu cuerpo</h2>
+            <p>
+              Tu cuerpo opera en modo
+              <strong>"alerta máxima"</strong> constante. Tus glándulas
+              suprarrenales, responsables de la energía y el estrés, están
+              sobrecargadas. Liberan cortisol de forma errática, dándote
+              <strong>picos de energía falsos</strong> que te permiten
+              funcionar, pero que son seguidos de caídas abruptas que te dejan
+              sin combustible.
+            </p>
+            <p style="margin-top: 15px">
+              Tu sistema nervioso no descansa, ni siquiera cuando duermes. Estás
+              pidiendo prestada la energía del mañana para sobrevivir hoy, y esa
+              <strong>deuda biológica</strong> está a punto de vencer.
+            </p>
+          </div>
+
+          <div id="consecuencias" class="tab-content">
+            <h2>
+              <i class="fas fa-hourglass-half"></i>Qué pasa si no haces nada
+            </h2>
+            <p>
+              A mediano plazo, esto se traduce en
+              <strong>niebla mental</strong> que retrasa tus decisiones, un
+              sistema inmune debilitado (te enfermas más seguido) y una
+              <strong>acumulación de grasa visceral</strong>, especialmente en
+              el abdomen, por el exceso de cortisol.
+            </p>
+            <p style="margin-top: 15px">
+              A largo plazo, te arriesgas a un
+              <strong>burnout crónico</strong> que no se soluciona con unas
+              simples vacaciones, afectando tu capacidad para liderar, crear y
+              disfrutar de tus logros.
+            </p>
+            <div class="stat-box">
+              <strong>Dato Clave:</strong> Según el
+              <em>Global Wellness Institute</em>, el 76% de los profesionales de
+              alto rendimiento confunden los síntomas de fatiga suprarrenal con
+              "estrés normal", ignorando la raíz biológica del problema hasta
+              que es demasiado tarde.
+            </div>
+          </div>
+
+          <div id="biohack" class="tab-content">
+            <h2><i class="fas fa-leaf"></i>Tu biohack natural recomendado</h2>
+            <p><strong>ASHWAGANDHA (ADAPTÓGENO REGULADOR)</strong></p>
+            <p style="margin-top: 15px">
+              Este no es un simple energizante, es un regulador inteligente para
+              tu sistema. Sus beneficios clave son:
+            </p>
+            <ul
+              style="list-style-type: '✓'; padding-left: 20px; margin-top: 15px"
+            >
+              <li style="padding-left: 10px">
+                <strong>Regula el cortisol:</strong> Evita los picos y valles de
+                energía para darte un rendimiento estable durante todo el día.
+              </li>
+              <li style="padding-left: 10px; margin-top: 10px">
+                <strong>Mejora la claridad mental:</strong> Reduce el "ruido"
+                interno para que puedas enfocarte en lo que realmente importa.
+              </li>
+              <li style="padding-left: 10px; margin-top: 10px">
+                <strong>Promueve un sueño profundo y reparador:</strong> Ayuda a
+                tu cuerpo a entrar en modo de recuperación real para que te
+                levantes con energía genuina.
+              </li>
+            </ul>
+          </div>
+
+          <div id="plan" class="tab-content">
+            <h2><i class="fas fa-rocket"></i>Tu plan exprés en 3 pasos</h2>
+            <ol class="plan-steps">
+              <li>
+                <strong>Ritual Matutino (Antes del café):</strong> Bebe un vaso
+                de agua tibia con una pizca de sal de mar y el jugo de medio
+                limón. Esto hidrata y nutre tus glándulas suprarrenales de forma
+                inmediata.
+              </li>
+              <li>
+                <strong>Pausa Estratégica (1 PM):</strong> Realiza una pausa de
+                5 minutos (sin pantallas) para hacer 10 respiraciones profundas
+                y lentas. Oxigena tu cerebro y reduce el cortisol del mediodía.
+              </li>
+              <li>
+                <strong>Señal de Apagado (1 hora antes de dormir):</strong> Toma
+                tu adaptógeno recomendado. Le estarás enviando a tu cuerpo la
+                señal de que es hora de bajar las revoluciones y prepararse para
+                una recuperación profunda.
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-section">
+        <h2>
+          ¿Quieres empezar con el suplemento correcto y mi guía para aplicarlo
+          bien?
+        </h2>
+        <p class="cta-subtitle">
+          🎁 Incluye producto + clase grabada + plan de 7 días
+        </p>
+        <a href="https://example.com/sales-page" class="cta-button"
+          >👉 Activa tu energía real ahora</a
+        >
+      </div>
+
+      <footer class="footer">
+        <p>Copyrights 2025 | SOUL IN MOTION™ | Terms & Conditions</p>
+      </footer>
+    </div>
+
+    <script>
+      // Set the default tab to be visible on load
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelector(".tab-link").click();
+      });
+
+      function openTab(evt, tabName) {
+        // Get all elements with class="tab-content" and hide them
+        var tabcontent = document.getElementsByClassName("tab-content");
+        for (var i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].classList.remove("active");
+        }
+
+        // Get all elements with class="tab-link" and remove the class "active"
+        var tablinks = document.getElementsByClassName("tab-link");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].classList.remove("active");
+        }
+
+        // Show the current tab, and add an "active" class to the button that opened the tab
+        document.getElementById(tabName).classList.add("active");
+        evt.currentTarget.classList.add("active");
+      }
+    </script>
+  </body>
+</html>

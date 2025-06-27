@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Interactivo: ¿Eres el CEO de tu cuerpo?</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Estilo para anular márgenes/paddings que GoHighLevel pueda inyectar */
+      body {
+        font-family: "Inter", sans-serif;
+      }
+
+      /* El contenedor del modal (inicialmente oculto) */
+      #quiz-main-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(
+          17,
+          24,
+          39,
+          0.85
+        ); /* bg-gray-900 con más opacidad */
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center; /* Centrado vertical por defecto */
+        z-index: 9999999; /* z-index muy alto para estar por encima de todo */
+        padding: 1rem;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        pointer-events: none; /* No interactuable cuando está oculto */
+      }
+
+      #quiz-main-container.visible {
+        opacity: 1;
+        pointer-events: auto; /* Interactuable cuando es visible */
+      }
+
+      .quiz-content-wrapper {
+        max-height: 90vh;
+        overflow-y: auto;
+      }
+
+      .quiz-screen {
+        transition: opacity 0.5s ease-in-out;
+      }
+      .quiz-screen.hidden {
+        display: none;
+      }
+      button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+      button:disabled:hover {
+        transform: none;
+        box-shadow: none;
+      }
+
+      /* --- AJUSTES RESPONSIVOS --- */
+      @media (max-width: 640px) {
+        .responsive-h1 {
+          font-size: 1.75rem;
+          line-height: 2.25rem;
+        }
+        .responsive-h2 {
+          font-size: 1.25rem;
+          line-height: 1.75rem;
+        }
+        .responsive-h3 {
+          font-size: 1.25rem;
+          line-height: 1.75rem;
+        }
+        .quiz-content-wrapper {
+          padding: 1.5rem;
+        }
+        .start-button-text {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Pantalla 0: Botón de Inicio -->
+    <div id="start-button-container" class="text-center p-10">
+      <button
+        onclick="startQuiz()"
+        class="bg-gradient-to-r from-blue-600 to-blue-800 text-white font-bold py-4 px-10 rounded-lg text-xl shadow-lg hover:shadow-blue-500/50 transform hover:-translate-y-1 transition-all duration-300 ease-in-out start-button-text"
+      >
+        Haz el Test Ahora y Descubre tu Energía Real
+      </button>
+    </div>
+
+    <!-- Contenedor del Quiz Modal -->
+    <div id="quiz-main-container" class="hidden">
+      <div
+        id="quiz-content-wrapper"
+        class="w-full max-w-2xl bg-gray-800 rounded-xl shadow-2xl p-6 md:p-10 relative"
+      >
+        <!-- Pantalla 1: Introducción -->
+        <div id="screen-1" class="quiz-screen">
+          <div class="text-center">
+            <h1
+              class="responsive-h1 text-3xl md:text-4xl font-bold text-gray-100 mb-3"
+            >
+              ¿Eres el CEO de tu cuerpo...
+            </h1>
+            <h2
+              class="responsive-h2 text-2xl md:text-3xl font-semibold text-blue-400 mb-6"
+            >
+              o solo un asistente agotado?
+            </h2>
+            <div class="text-left max-w-md mx-auto space-y-3 my-8">
+              <p class="text-gray-200">
+                <span class="text-blue-400 font-bold">✓</span> Descubre qué está
+                drenando tu energía.
+              </p>
+              <p class="text-gray-200">
+                <span class="text-blue-400 font-bold">✓</span> Entiende qué
+                necesita tu cuerpo HOY.
+              </p>
+              <p class="text-gray-200">
+                <span class="text-blue-400 font-bold">✓</span> Recibe un biohack
+                natural para aplicar de inmediato.
+              </p>
+            </div>
+            <p class="text-gray-400 mb-8">
+              🧠 Solo 3 preguntas. Resultados en menos de 2 minutos.
+            </p>
+            <button
+              onclick="showScreen(2)"
+              class="w-full md:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-12 rounded-lg text-lg transition-transform transform hover:scale-105"
+            >
+              👉 Empieza ahora
+            </button>
+          </div>
+        </div>
+
+        <!-- Pantalla 2: Pregunta 1 -->
+        <div id="screen-2" class="quiz-screen hidden">
+          <p class="text-blue-400 font-semibold mb-2">Pregunta 1/4</p>
+          <h3 class="responsive-h3 text-2xl md:text-3xl font-bold mb-4">
+            ¿Cómo te sientes energéticamente durante un día típico?
+          </h3>
+          <textarea
+            id="answer1"
+            oninput="validateInput('answer1', 'nextBtn2')"
+            class="w-full h-32 bg-gray-700 text-white p-4 rounded-lg border-2 border-gray-600 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+            placeholder="Ej: “Empiezo bien pero me apago a media tarde”, “Duermo bien, pero sigo cansado/a”, “Solo funciono con café”..."
+          ></textarea>
+          <div class="mt-6 flex justify-end items-center">
+            <button
+              id="nextBtn2"
+              onclick="showScreen(3)"
+              class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-8 rounded-lg transition-transform transform hover:scale-105"
+              disabled
+            >
+              Siguiente
+            </button>
+          </div>
+        </div>
+
+        <!-- Pantalla 3: Pregunta 2 -->
+        <div id="screen-3" class="quiz-screen hidden">
+          <p class="text-blue-400 font-semibold mb-2">Pregunta 2/4</p>
+          <h3 class="responsive-h3 text-2xl md:text-3xl font-bold mb-4">
+            ¿Qué hábitos logras sostener... y cuáles no?
+          </h3>
+          <textarea
+            id="answer2"
+            oninput="validateInput('answer2', 'nextBtn3')"
+            class="w-full h-32 bg-gray-700 text-white p-4 rounded-lg border-2 border-gray-600 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+            placeholder="Ej: “Entreno a diario, pero como mal”, “Suplemento a veces, sin orden”, “No tengo rutina clara”..."
+          ></textarea>
+          <div class="mt-6 flex justify-between items-center">
+            <button
+              onclick="showScreen(2)"
+              class="text-gray-400 hover:text-white font-bold py-2 px-4 rounded-lg"
+            >
+              Anterior
+            </button>
+            <button
+              id="nextBtn3"
+              onclick="showScreen(4)"
+              class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-8 rounded-lg transition-transform transform hover:scale-105"
+              disabled
+            >
+              Siguiente
+            </button>
+          </div>
+        </div>
+
+        <!-- Pantalla 4: Pregunta 3 -->
+        <div id="screen-4" class="quiz-screen hidden">
+          <p class="text-blue-400 font-semibold mb-2">Pregunta 3/4</p>
+          <h3 class="responsive-h3 text-2xl md:text-3xl font-bold mb-4">
+            ¿Qué te gustaría mejorar en tu cuerpo o mente ahora mismo?
+          </h3>
+          <textarea
+            id="answer3"
+            oninput="validateInput('answer3', 'nextBtn4')"
+            class="w-full h-32 bg-gray-700 text-white p-4 rounded-lg border-2 border-gray-600 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+            placeholder="Ej: “Tener más foco mental”, “Dormir bien sin ansiedad”, “Sentirme más liviano/a y enfocado/a”..."
+          ></textarea>
+          <div class="mt-6 flex justify-between items-center">
+            <button
+              onclick="showScreen(3)"
+              class="text-gray-400 hover:text-white font-bold py-2 px-4 rounded-lg"
+            >
+              Anterior
+            </button>
+            <button
+              id="nextBtn4"
+              onclick="showScreen(5)"
+              class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-8 rounded-lg transition-transform transform hover:scale-105"
+              disabled
+            >
+              Siguiente
+            </button>
+          </div>
+        </div>
+
+        <!-- Pantalla 5: Pregunta 4 (Opcional) -->
+        <div id="screen-5" class="quiz-screen hidden">
+          <p class="text-blue-400 font-semibold mb-2">
+            Pregunta 4/4 (Opcional)
+          </p>
+          <h3 class="responsive-h3 text-2xl md:text-3xl font-bold mb-4">
+            ¿En qué momento del día sientes que se cae tu energía?
+          </h3>
+          <textarea
+            id="answer4"
+            class="w-full h-32 bg-gray-700 text-white p-4 rounded-lg border-2 border-gray-600 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+            placeholder="Ej: “A media tarde”, “Después de comer”, “En la noche, no logro apagarme”..."
+          ></textarea>
+          <div class="mt-6 flex justify-between items-center">
+            <button
+              onclick="showScreen(4)"
+              class="text-gray-400 hover:text-white font-bold py-2 px-4 rounded-lg"
+            >
+              Anterior
+            </button>
+            <button
+              id="nextBtn5"
+              onclick="sendDataAndRedirect()"
+              class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-10 rounded-lg text-lg transition-transform transform hover:scale-105"
+            >
+              Ver mis resultados
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // SOLUCIÓN PARA GOHIGHLEVEL: Mueve el modal para que sea hijo directo del body
+        // Esto lo libera de cualquier contenedor que pueda restringir su posicionamiento 'fixed'.
+        const quizModal = document.getElementById("quiz-main-container");
+        if (quizModal) {
+          document.body.appendChild(quizModal);
+        }
+      });
+
+      let currentScreen = 1;
+      const quizContainer = document.getElementById("quiz-main-container");
+      const startButtonContainer = document.getElementById(
+        "start-button-container"
+      );
+
+      function startQuiz() {
+        startButtonContainer.style.display = "none";
+        if (quizContainer) {
+          quizContainer.classList.remove("hidden");
+          quizContainer.classList.add("visible");
+          showScreen(1);
+        }
+      }
+
+      function showScreen(screenNumber) {
+        const wrapper = document.getElementById("quiz-content-wrapper");
+        if (!wrapper) return;
+
+        const screens = wrapper.querySelectorAll(".quiz-screen");
+        screens.forEach((s) => s.classList.add("hidden"));
+
+        const nextScreen = document.getElementById(`screen-${screenNumber}`);
+        if (nextScreen) {
+          nextScreen.classList.remove("hidden");
+        }
+        currentScreen = screenNumber;
+      }
+
+      function validateInput(textareaId, buttonId) {
+        const textarea = document.getElementById(textareaId);
+        const button = document.getElementById(buttonId);
+        if (button) {
+          button.disabled = textarea.value.trim() === "";
+        }
+      }
+
+      async function sendDataAndRedirect() {
+        const webhookURL =
+          "https://hook.us2.make.com/qq66gdowwxywndlthvfahclujongysln";
+        const finalButton = document.getElementById("nextBtn5");
+
+        const data = {
+          pregunta1: document.getElementById("answer1").value.trim(),
+          pregunta2: document.getElementById("answer2").value.trim(),
+          pregunta3: document.getElementById("answer3").value.trim(),
+          pregunta4: document.getElementById("answer4").value.trim(),
+        };
+
+        if (finalButton) {
+          finalButton.disabled = true;
+          finalButton.innerText = "Analizando...";
+        }
+
+        try {
+          const response = await fetch(webhookURL, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          });
+
+          if (!response.ok) {
+            console.error(
+              "Error al enviar datos al webhook:",
+              response.statusText
+            );
+          }
+        } catch (error) {
+          console.error("Error en la solicitud fetch:", error);
+        } finally {
+          window.location.href =
+            "https://soulinmotion.empoderamientoesencial.com/thanks-page";
+        }
+      }
+    </script>
+  </body>
+</html>

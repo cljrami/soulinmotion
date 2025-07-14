@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Activa tu Energía Real - Protocolo de 21 Días</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Hanken+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Custom Styles (No Tailwind) -->
+    <style>
+      /* CSS Variables for consistent theming */
+      :root {
+        --bg-dark: #0a1a2a;
+        --bg-darker: #140625;
+        --text-light: #e2e8f0;
+        --text-medium: #94a3b8;
+        --text-dark: #64748b;
+        --primary-color: #6366f1; /* indigo-500 */
+        --primary-hover: #4f46e5; /* indigo-600 */
+        --primary-light: #818cf8; /* indigo-400 */
+        --green-color: #4ade80; /* green-400 */
+        --blue-color: #60a5fa; /* blue-400 */
+        --purple-color: #c084fc; /* purple-400 */
+        --orange-color: #fb923c; /* orange-400 */
+        --red-color: #f87171; /* red-400 */
+        --font-headline: "Archivo Black", sans-serif;
+        --font-body: "Hanken Grotesk", sans-serif;
+      }
+
+      /* GHL Overrides - Forzar Full-Width y eliminar márgenes */
+      html,
+      body {
+        background-color: var(--bg-dark) !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow-x: hidden; /* Prevenir scroll horizontal */
+      }
+
+      .hl_page-preview--content,
+      .c-section,
+      .c-row,
+      .c-column {
+        margin: 0 !important;
+        padding: 0 !important;
+        max-width: none !important;
+      }
+
+      /* General Body Styles */
+      body {
+        color: var(--text-light);
+        font-family: var(--font-body);
+        box-sizing: border-box;
+        line-height: 1.6;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: inherit;
+      }
+
+      /* Container para centrar el contenido dentro de las secciones full-width */
+      .main-container {
+        width: 100%;
+        max-width: 1170px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      /* Typography */
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: var(--font-headline);
+        margin: 0;
+      }
+      p {
+        margin: 0;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      strong {
+        font-weight: 700;
+      }
+
+      /* Header & Footer */
+      header {
+        padding: 1rem 0;
+        background-color: var(--bg-dark);
+      }
+      .header-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .logo-container span {
+        font-family: var(--font-headline);
+        font-size: 1.25rem;
+        color: white;
+      }
+      .logo-container svg {
+        height: 2rem;
+        width: 2rem;
+        color: var(--primary-light);
+      }
+
+      footer {
+        padding: 2rem 0;
+        border-top: 1px solid #1e293b; /* slate-800 */
+        text-align: center;
+        font-size: 0.875rem;
+        color: var(--text-dark);
+      }
+      .footer-logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+      }
+      .footer-logo span {
+        font-family: var(--font-headline);
+        font-size: 1rem;
+        color: var(--text-medium);
+      }
+      .footer-logo svg {
+        width: 1.5rem;
+        height: 1.5rem;
+        color: var(--text-dark);
+      }
+
+      /* Sections */
+      section {
+        padding: 4rem 1rem; /* Padding vertical y horizontal para móviles */
+        width: 100%;
+      }
+      #pain,
+      #includes,
+      #results,
+      #what-you-get {
+        background-color: var(--bg-darker);
+      }
+      #cta-final {
+        background-color: rgba(49, 46, 129, 0.3); /* indigo-900/30 */
+      }
+
+      /* Hero Section */
+      #hero {
+        text-align: center;
+      }
+      #hero h1 {
+        font-size: 2.5rem;
+        line-height: 1.2;
+        color: white;
+      }
+      #hero h1 span {
+        color: var(--primary-light);
+      }
+      #hero .subtitle {
+        max-width: 48rem;
+        margin: 1.5rem auto 0;
+        font-size: 1.125rem;
+        color: var(--text-medium);
+      }
+      #hero .benefits-list {
+        margin-top: 2rem;
+        max-width: 32rem;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        text-align: left;
+      }
+      #hero .benefit-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+      }
+      #hero .benefit-item svg {
+        width: 1.5rem;
+        height: 1.5rem;
+        color: var(--green-color);
+        flex-shrink: 0;
+        margin-top: 0.25rem;
+      }
+      #hero .cta-container {
+        margin-top: 3rem;
+      }
+
+      /* CTA Button */
+      .cta-button {
+        display: inline-block;
+        background-color: var(--primary-hover);
+        color: white;
+        font-family: var(--font-headline);
+        padding: 1rem 3rem;
+        border-radius: 0.5rem;
+        font-size: 1.25rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(129, 140, 248, 0.2);
+      }
+      .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(129, 140, 248, 0.4);
+      }
+
+      /* Pain Section */
+      #pain {
+        text-align: center;
+      }
+      #pain .pain-points {
+        max-width: 42rem;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      #pain .pain-point {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-light);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #pain .pain-point span {
+        color: var(--green-color);
+        margin-right: 0.75rem;
+        font-size: 2rem;
+      }
+      #pain .solution-text {
+        margin-top: 3rem;
+        font-size: 2rem;
+        font-family: var(--font-headline);
+      }
+      #pain .solution-text.white {
+        color: white;
+      }
+      #pain .solution-text.primary {
+        color: var(--primary-light);
+      }
+
+      /* Paradigm Section */
+      #paradigm {
+        text-align: center;
+      }
+      #paradigm h2 {
+        font-size: 2.25rem;
+        color: white;
+      }
+      #paradigm h2 span {
+        color: var(--primary-light);
+      }
+      #paradigm .paradigm-text {
+        max-width: 48rem;
+        margin: 1.5rem auto 0;
+        font-size: 1.125rem;
+        color: var(--text-medium);
+      }
+      #paradigm .paradigm-grid {
+        margin-top: 3rem;
+        display: grid;
+        gap: 2rem;
+        max-width: 56rem;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 0.75rem;
+        padding: 1.5rem;
+      }
+      #paradigm .glass-card p {
+        font-weight: 700;
+        font-size: 1.25rem;
+        color: white;
+      }
+
+      /* Includes Section */
+      #includes h2 {
+        font-size: 2.25rem;
+        text-align: center;
+        color: white;
+      }
+      #includes h2 span {
+        color: var(--primary-light);
+      }
+      #includes .includes-grid {
+        margin-top: 3rem;
+        display: grid;
+        gap: 2rem;
+        max-width: 72rem;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      #includes .glass-card {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      #includes .glass-card span {
+        font-size: 2rem;
+      }
+      #includes .glass-card h3 {
+        font-weight: 700;
+        font-size: 1.25rem;
+        color: white;
+      }
+      #includes .glass-card p {
+        margin-top: 0.25rem;
+        color: var(--text-medium);
+      }
+
+      /* Course Content Section */
+      #course-content h2 {
+        font-size: 2.25rem;
+        text-align: center;
+        color: white;
+      }
+      #course-content h2 span {
+        color: var(--primary-light);
+      }
+      #course-content .modules-container {
+        margin-top: 3rem;
+        max-width: 48rem;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      #course-content .module-card {
+        padding: 1.5rem;
+      }
+      #course-content .module-card h3 {
+        font-weight: 700;
+        font-size: 1.25rem;
+        color: var(--primary-light);
+      }
+      #course-content .module-card p {
+        margin-top: 0.5rem;
+        font-size: 1.125rem;
+        color: var(--text-light);
+      }
+      #course-content .bonus-card {
+        border: 2px dashed var(--green-color);
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+      }
+      #course-content .bonus-card h3 {
+        font-weight: 700;
+        font-size: 1.25rem;
+        color: var(--green-color);
+      }
+      #course-content .bonus-card p {
+        margin-top: 0.5rem;
+        font-size: 1.125rem;
+        color: var(--text-light);
+      }
+
+      /* Results Section */
+      #results h2 {
+        font-size: 2.25rem;
+        text-align: center;
+        color: white;
+      }
+      #results h2 span {
+        color: var(--primary-light);
+      }
+      #results .results-grid {
+        margin-top: 3rem;
+        display: grid;
+        gap: 2rem;
+      }
+      #results .result-card {
+        border: 2px solid;
+        border-radius: 0.75rem;
+        padding: 1.5rem;
+      }
+      #results .result-card h3 {
+        font-family: var(--font-headline);
+        font-size: 1.5rem;
+      }
+      #results .result-card p {
+        margin-top: 1rem;
+        color: var(--text-medium);
+      }
+      #results .result-card .supplement {
+        margin-top: 1rem;
+        font-weight: 700;
+        color: white;
+      }
+      #results .result-card .supplement span {
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.25rem;
+      }
+      .border-blue {
+        border-color: var(--blue-color);
+      }
+      .text-blue {
+        color: var(--blue-color);
+      }
+      .bg-blue {
+        background-color: rgba(96, 165, 250, 0.2);
+      }
+      .border-purple {
+        border-color: var(--purple-color);
+      }
+      .text-purple {
+        color: var(--purple-color);
+      }
+      .bg-purple {
+        background-color: rgba(192, 132, 252, 0.2);
+      }
+      .border-orange {
+        border-color: var(--orange-color);
+      }
+      .text-orange {
+        color: var(--orange-color);
+      }
+      .bg-orange {
+        background-color: rgba(251, 146, 60, 0.2);
+      }
+      .border-red {
+        border-color: var(--red-color);
+      }
+      .text-red {
+        color: var(--red-color);
+      }
+      .bg-red {
+        background-color: rgba(248, 113, 113, 0.2);
+      }
+
+      /* Why Section */
+      #why .why-grid {
+        display: grid;
+        gap: 3rem;
+        align-items: center;
+      }
+      #why h2 {
+        font-size: 2.25rem;
+        color: white;
+      }
+      #why h2 span {
+        color: var(--primary-light);
+      }
+      #why p {
+        margin-top: 1.5rem;
+        font-size: 1.125rem;
+        color: var(--text-medium);
+      }
+      #why .highlight-text {
+        margin-top: 2rem;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: white;
+      }
+      #why .highlight-text span {
+        color: var(--primary-light);
+      }
+      #why img {
+        border-radius: 0.75rem;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        width: 100%;
+        height: auto;
+      }
+
+      /* What You Get Section */
+      #what-you-get h2 {
+        font-size: 2.25rem;
+        text-align: center;
+        color: white;
+      }
+      #what-you-get h2 span {
+        color: var(--primary-light);
+      }
+      #what-you-get .table-container {
+        margin-top: 3rem;
+        max-width: 56rem;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 0.75rem;
+        overflow: hidden;
+      }
+      #what-you-get .table-content {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      #what-you-get .table-row {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        padding: 1rem;
+        align-items: center;
+      }
+      #what-you-get .table-header {
+        font-weight: 700;
+        color: var(--text-medium);
+      }
+      #what-you-get .table-body .table-row {
+        border-top: 1px solid #334155; /* slate-700 */
+        transition: background-color 0.3s;
+      }
+      #what-you-get .table-body .table-row:hover {
+        background-color: rgba(51, 65, 85, 0.5);
+      }
+      #what-you-get .item-name {
+        font-weight: 700;
+        font-size: 1.125rem;
+        color: white;
+      }
+      #what-you-get .item-detail {
+        color: var(--text-medium);
+      }
+
+      /* FAQ Section */
+      #faq {
+        text-align: center;
+      }
+      #faq h2 {
+        font-size: 2.25rem;
+        color: white;
+      }
+      #faq .faq-container {
+        margin-top: 3rem;
+        max-width: 48rem;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      #faq .faq-item button {
+        width: 100%;
+        text-align: left;
+        padding: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+      #faq .faq-item button span {
+        font-weight: 700;
+        font-size: 1.125rem;
+        color: white;
+      }
+      #faq .faq-item button svg {
+        width: 1.5rem;
+        height: 1.5rem;
+        color: var(--text-dark);
+        transition: transform 0.3s;
+      }
+      #faq .faq-item .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 1.5rem;
+        color: var(--text-medium);
+        transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+      }
+      #faq .faq-item.open .faq-answer {
+        padding-bottom: 1.5rem;
+      }
+
+      /* Final CTA Section */
+      #cta-final {
+        text-align: center;
+      }
+      #cta-final h2 {
+        font-size: 2.5rem;
+        color: white;
+      }
+      #cta-final p.tagline {
+        font-family: var(--font-headline);
+        font-size: 2.5rem;
+        color: var(--primary-light);
+      }
+      #cta-final .cta-container {
+        margin-top: 2.5rem;
+      }
+      #cta-final .cta-button {
+        padding: 1.25rem 4rem;
+        font-size: 1.5rem;
+      }
+      #cta-final .price {
+        margin-top: 1rem;
+        color: var(--text-light);
+      }
+      #cta-final .includes-text {
+        margin-top: 0.5rem;
+        color: var(--text-medium);
+      }
+      #cta-final .disclaimer {
+        margin-top: 0.25rem;
+        font-size: 0.875rem;
+        color: var(--text-dark);
+      }
+
+      /* Responsive Styles */
+      @media (min-width: 768px) {
+        section {
+          padding: 5rem 0;
+        }
+        #hero h1 {
+          font-size: 3.75rem;
+        }
+        #pain .solution-text {
+          font-size: 2.25rem;
+        }
+        #paradigm h2 {
+          font-size: 3rem;
+        }
+        #paradigm .paradigm-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        #includes h2 {
+          font-size: 3rem;
+        }
+        #includes .includes-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        #course-content h2 {
+          font-size: 3rem;
+        }
+        #results h2 {
+          font-size: 3rem;
+        }
+        #results .results-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        #why .why-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        #what-you-get h2 {
+          font-size: 3rem;
+        }
+        #faq h2 {
+          font-size: 3rem;
+        }
+        #cta-final h2,
+        #cta-final p.tagline {
+          font-size: 3.75rem;
+        }
+      }
+      @media (min-width: 1024px) {
+        #hero h1 {
+          font-size: 4.5rem;
+        }
+        #includes .includes-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        #results .results-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="main-container header-container">
+        <div class="logo-container">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M13 10V3L4 14h7v7l9-11h-7z"
+            />
+          </svg>
+          <span>SOUL IN MOTION</span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- SECCIÓN 1 – HERO -->
+      <section id="hero">
+        <div class="main-container">
+          <h1>
+            Tu energía no está perdida. <br />
+            Solo está <span>mal gestionada.</span>
+          </h1>
+          <p class="subtitle">
+            Si haces todo bien pero aún te sientes agotado/a, este protocolo de
+            21 días está diseñado para ti:
+          </p>
+          <div class="benefits-list">
+            <div class="benefit-item">
+              <svg
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"
+                ></path>
+              </svg>
+              <p>Personalizado según tu diagnóstico energético.</p>
+            </div>
+            <div class="benefit-item">
+              <svg
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"
+                ></path>
+              </svg>
+              <p>Incluye suplemento natural premium.</p>
+            </div>
+            <div class="benefit-item">
+              <svg
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"
+                ></path>
+              </svg>
+              <p>Mini curso estratégico grabado para entender el 'porqué'.</p>
+            </div>
+            <div class="benefit-item">
+              <svg
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"
+                ></path>
+              </svg>
+              <p>Mensajes diarios para sostener el cambio.</p>
+            </div>
+          </div>
+          <div class="cta-container">
+            <a href="#cta-final" class="cta-button">
+              👉 Empieza tu protocolo ahora
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECCIÓN 2 – VALIDACIÓN DEL DOLOR -->
+      <section id="pain">
+        <div class="main-container">
+          <div class="pain-points">
+            <p class="pain-point">
+              <span>✓</span> ¿Haces ejercicio, comes sano, meditas… y sigues sin
+              energía?
+            </p>
+            <p class="pain-point">
+              <span>✓</span> ¿Sientes que te estás forzando a rendir con café y
+              voluntad?
+            </p>
+            <p class="pain-point">
+              <span>✓</span> ¿Estás cansado de sentirte funcional pero
+              desconectado/a?
+            </p>
+          </div>
+          <p class="solution-text white">Esto no es flojera.</p>
+          <p class="solution-text primary">
+            Es un sistema energético mal regulado. Y sí tiene solución.
+          </p>
+        </div>
+      </section>
+
+      <!-- SECCIÓN 3 – EL NUEVO PARADIGMA -->
+      <section id="paradigm">
+        <div class="main-container">
+          <h2>
+            No necesitas más fuerza de voluntad. <br />
+            Necesitas <span>estrategia fisiológica.</span>
+          </h2>
+          <p class="paradigm-text">
+            Tu cuerpo es como un Ferrari. Pero estás poniéndole gasolina de baja
+            calidad. Este protocolo te ayuda a recuperar tu energía desde la
+            raíz:
+          </p>
+          <div class="paradigm-grid">
+            <div class="glass-card"><p>Sin cambiar tu agenda</p></div>
+            <div class="glass-card"><p>Sin sacrificar tu rendimiento</p></div>
+            <div class="glass-card"><p>Sin suplementos genéricos</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECCIÓN 4 – ¿QUÉ INCLUYE? -->
+      <section id="includes">
+        <div class="main-container">
+          <h2>Esto no es solo un suplemento. <span>Es un sistema.</span></h2>
+          <div class="includes-grid">
+            <div class="glass-card">
+              <span>🧬</span>
+              <div>
+                <h3>Suplemento Natural Personalizado</h3>
+                <p>
+                  1 mes de dosis, elegido según tu perfil energético del test.
+                </p>
+              </div>
+            </div>
+            <div class="glass-card">
+              <span>🎓</span>
+              <div>
+                <h3>Mini Curso Grabado</h3>
+                <p>
+                  3 módulos iniciales + 1 bonus, con educación clara y
+                  científica.
+                </p>
+              </div>
+            </div>
+            <div class="glass-card">
+              <span>📅</span>
+              <div>
+                <h3>Checklist y Calendario de 21 Días</h3>
+                <p>
+                  Acciones diarias, rituales y seguimiento para una
+                  implementación fácil.
+                </p>
+              </div>
+            </div>
+            <div class="glass-card">
+              <span>📲</span>
+              <div>
+                <h3>Mensajes por WhatsApp</h3>
+                <p>
+                  Biohacks, hábitos y herramientas mentales entregados cada día
+                  durante 21 días.
+                </p>
+              </div>
+            </div>
+            <div class="glass-card">
+              <span>🎁</span>
+              <div>
+                <h3>Acceso a Comunidad Privada</h3>
+                <p>
+                  Un canal exclusivo para resolver dudas, compartir y seguir
+                  aprendiendo.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECCIÓN 5 – CONTENIDO DEL CURSO -->
+      <section id="course-content">
+        <div class="main-container">
+          <h2>
+            🎓 Aprende a gestionar tu energía como una
+            <span>CEO de tu cuerpo</span>
+          </h2>
+          <div class="modules-container">
+            <div class="glass-card module-card">
+              <h3>Módulo 1</h3>
+              <p>
+                Tu energía no está perdida, solo mal gestionada + fundamentos de
+                biohacks.
+              </p>
+            </div>
+            <div class="glass-card module-card">
+              <h3>Módulo 2</h3>
+              <p>
+                Suplementación efectiva: por qué hoy sí importa y cómo elegir
+                bien.
+              </p>
+            </div>
+            <div class="glass-card module-card">
+              <h3>Módulo 3</h3>
+              <p>
+                Activa tu protocolo personalizado + conoce todo el ecosistema de
+                suplementos.
+              </p>
+            </div>
+            <div class="bonus-card">
+              <h3>BONUS (Día 21)</h3>
+              <p>
+                De la intención al cambio profundo → Cómo sostener tu energía
+                por 90 días.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECCIÓN 6 – TU RESULTADO NO FUE AZAR -->
+      <section id="results">
+        <div class="main-container">
+          <h2>
+            ¿Tuviste este resultado en el test? <br /><span
+              >Tu resultado no fue al azar.</span
+            >
+          </h2>
+          <div class="results-grid">
+            <div class="result-card border-blue">
+              <h3 class="text-blue">🔹 CEO con Ritmo Cortado</h3>
+              <p>Necesitas pausas y foco mental sin sobrecarga.</p>
+              <p class="supplement">
+                Suplemento: <span class="bg-blue text-blue">Omega 3</span>
+              </p>
+            </div>
+            <div class="result-card border-purple">
+              <h3 class="text-purple">🔹 Ejecutivo/a Ansioso/a</h3>
+              <p>Tu descanso no es profundo, tu mente no se apaga.</p>
+              <p class="supplement">
+                Suplemento: <span class="bg-purple text-purple">Serenity</span>
+              </p>
+            </div>
+            <div class="result-card border-orange">
+              <h3 class="text-orange">🔹 Líder Inflamada sin Pausas</h3>
+              <p>Tu sistema digestivo está agotado.</p>
+              <p class="supplement">
+                Suplemento:
+                <span class="bg-orange text-orange">Probióticos o Cúrcuma</span>
+              </p>
+            </div>
+            <div class="result-card border-red">
+              <h3 class="text-red">🔹 Power Performer al Borde</h3>
+              <p>Tu cuerpo rinde, pero está al límite.</p>
+              <p class="supplement">
+                Suplemento: <span class="bg-red text-red">Copaiba</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECCIÓN 7 – POR QUÉ FUNCIONA -->
+      <section id="why">
+        <div class="main-container">
+          <div class="why-grid">
+            <div>
+              <h2>Ciencia, estrategia y <span>experiencia.</span></h2>
+              <p>
+                Este protocolo fue diseñado por
+                <strong>Alina Bracamontes</strong>, seleccionada nacional de
+                vóley, mamá, coach y empresaria de alto rendimiento.
+              </p>
+              <p>
+                Ha probado esta metodología con mujeres y hombres que hoy
+                lideran su energía.
+              </p>
+              <p class="highlight-text">
+                No se trata de fuerza. <br />Se trata de
+                <span>fórmula, intención y ritmo.</span>
+              </p>
+            </div>
+            <div>
+              <img
+                src="https://placehold.co/600x700/140625/E2E8F0?text=Alina+Bracamontes"
+                alt="Alina Bracamontes"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECCIÓN 8 – ¿QUÉ RECIBES EXACTAMENTE? -->
+      <section id="what-you-get">
+        <div class="main-container">
+          <h2>¿Qué recibes <span>exactamente?</span></h2>
+          <div class="table-container glass-card">
+            <div class="table-content">
+              <div class="table-header table-row">
+                <div>Ítem</div>
+                <div>Detalle</div>
+              </div>
+              <div class="table-body">
+                <div class="table-row">
+                  <div class="item-name">🧬 Suplemento</div>
+                  <div class="item-detail">
+                    Envío personalizado según tu resultado (1 mes de dosis).
+                  </div>
+                </div>
+                <div class="table-row">
+                  <div class="item-name">🎓 Curso</div>
+                  <div class="item-detail">
+                    Acceso inmediato a los 3 módulos + 1 módulo desbloqueado día
+                    21.
+                  </div>
+                </div>
+                <div class="table-row">
+                  <div class="item-name">📅 Calendario</div>
+                  <div class="item-detail">
+                    Guía PDF con ritual diario por 21 días.
+                  </div>
+                </div>
+                <div class="table-row">
+                  <div class="item-name">📲 WhatsApp</div>
+                  <div class="item-detail">
+                    1 mensaje diario con biohack y mentalidad accionable.
+                  </div>
+                </div>
+                <div class="table-row">
+                  <div class="item-name">🎁 Comunidad</div>
+                  <div class="item-detail">
+                    Canal exclusivo para seguir aprendiendo y conectar.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECCIÓN 9 – OBJECIONES / FAQ -->
+      <section id="faq">
+        <div class="main-container">
+          <h2>Preguntas Frecuentes</h2>
+          <div class="faq-container" id="faq-accordion">
+            <div class="faq-item glass-card">
+              <button class="faq-question">
+                <span>¿Y si no me sirve el suplemento?</span>
+                <svg
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  No trabajamos con fórmulas genéricas. El suplemento fue
+                  elegido para ti y viene con guía detallada para integrarlo.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item glass-card">
+              <button class="faq-question">
+                <span>¿Puedo hacerlo si no tengo tiempo?</span>
+                <svg
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Sí. Todo está diseñado para funcionar sin cambiar tu agenda.
+                  Es energía aplicada, no esfuerzo añadido.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item glass-card">
+              <button class="faq-question">
+                <span>¿En cuánto tiempo veré resultados?</span>
+                <svg
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Entre los días 7 y 21 muchas personas ya notan mejoras. El
+                  protocolo completo está diseñado para prepararte para un
+                  cambio profundo de 90 días.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECCIÓN 10 – CTA FINAL -->
+      <section id="cta-final">
+        <div class="main-container">
+          <h2>Tu energía real te está esperando.</h2>
+          <p class="tagline">No es tarde. Es estratégico.</p>
+          <div class="cta-container">
+            <a href="#" class="cta-button">
+              👉 Quiero empezar el protocolo ahora
+            </a>
+          </div>
+          <p class="price">Inversión: $70 USD</p>
+          <p class="includes-text">
+            Incluye tu suplemento + curso + plan de 21 días.
+          </p>
+          <p class="disclaimer">
+            En menos de 3 minutos estarás recibiendo tu primera acción.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="main-container">
+        <div class="footer-logo">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M13 10V3L4 14h7v7l9-11h-7z"
+            />
+          </svg>
+          <span>SOUL IN MOTION</span>
+        </div>
+        <p>Copyrights 2025 | SOUL IN MOTION™ | Terms & Conditions</p>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const faqContainer = document.getElementById("faq-accordion");
+        if (faqContainer) {
+          const faqItems = faqContainer.querySelectorAll(".faq-item");
+          faqItems.forEach((item) => {
+            const question = item.querySelector(".faq-question");
+            const answer = item.querySelector(".faq-answer");
+            const icon = question.querySelector("svg");
+
+            question.addEventListener("click", () => {
+              const isOpen = item.classList.contains("open");
+
+              // Close all other items
+              faqItems.forEach((otherItem) => {
+                otherItem.classList.remove("open");
+                otherItem.querySelector(".faq-answer").style.maxHeight = null;
+                otherItem.querySelector("svg").style.transform = "rotate(0deg)";
+              });
+
+              // Open the clicked item if it was closed
+              if (!isOpen) {
+                item.classList.add("open");
+                answer.style.maxHeight = answer.scrollHeight + "px";
+                icon.style.transform = "rotate(180deg)";
+              }
+            });
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

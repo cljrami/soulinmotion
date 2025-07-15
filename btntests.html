@@ -7,32 +7,49 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Hanken+Grotesk:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
     <style>
       :root {
-        --quiz-font: "Inter", sans-serif;
-        --quiz-bg-overlay: rgba(17, 24, 39, 0.85);
-        --quiz-bg-modal: #1f2937; /* Tailwind bg-gray-800 */
-        --quiz-text-light: #f3f4f6; /* Tailwind bg-gray-200 */
-        --quiz-text-medium: #9ca3af; /* Tailwind bg-gray-400 */
-        --quiz-primary: #3b82f6; /* Tailwind bg-blue-600 */
-        --quiz-primary-hover: #2563eb; /* Tailwind bg-blue-700 */
-        --quiz-green: #16a34a; /* Tailwind bg-green-600 */
-        --quiz-green-hover: #15803d; /* Tailwind bg-green-700 */
+        --quiz-font: "Hanken Grotesk", sans-serif;
+        --headline-font: "Archivo Black", sans-serif;
+        --quiz-bg-overlay: rgba(10, 26, 42, 0.85);
+        --quiz-bg-modal: #140625;
+        --text-light: #f3f4f6;
+        --text-medium: #9ca3af;
+        --primary-color: #818cf8;
+        --primary-hover: #6366f1;
+        --green-color: #4ade80;
       }
-      .quiz-body {
-        font-family: var(--quiz-font);
+      html,
+      body {
+        background-color: #0a1a2a !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow-x: hidden;
+      }
+      .hl_page-preview--content,
+      .c-section,
+      .c-row,
+      .c-column {
+        margin: 0 !important;
+        padding: 0 !important;
+        max-width: none !important;
       }
       .quiz-start-button-container {
         text-align: center;
         padding: 2.5rem;
       }
       .quiz-start-button {
-        background-image: linear-gradient(to right, #3b82f6, #1e40af);
+        background-image: linear-gradient(
+          to right,
+          var(--primary-color),
+          var(--primary-hover)
+        );
         color: white;
-        font-weight: bold;
+        font-family: var(--headline-font);
         padding: 1rem 2.5rem;
         border-radius: 0.5rem;
         font-size: 1.25rem;
@@ -44,8 +61,8 @@
       }
       .quiz-start-button:hover {
         transform: translateY(-4px);
-        box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.3),
-          0 10px 10px -5px rgba(59, 130, 246, 0.2);
+        box-shadow: 0 20px 25px -5px rgba(129, 140, 248, 0.3),
+          0 10px 10px -5px rgba(129, 140, 248, 0.2);
       }
       #quiz-main-container {
         position: fixed;
@@ -72,9 +89,9 @@
       }
       .quiz-content-wrapper {
         width: 100%;
-        max-width: 42rem; /* max-w-2xl */
+        max-width: 42rem;
         background-color: var(--quiz-bg-modal);
-        border-radius: 0.75rem; /* rounded-xl */
+        border-radius: 0.75rem;
         box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         padding: 2.5rem;
         position: relative;
@@ -88,76 +105,64 @@
         display: none;
       }
       .quiz-screen h1 {
-        font-size: 2.25rem; /* text-3xl */
-        line-height: 2.5rem;
-        font-weight: 700;
-        color: var(--quiz-text-light);
+        font-family: var(--headline-font);
+        font-size: 2.25rem;
+        line-height: 1.2;
+        color: var(--text-light);
         margin-bottom: 0.75rem;
       }
       .quiz-screen h2 {
-        font-size: 1.875rem; /* text-2xl */
-        line-height: 2.25rem;
-        font-weight: 600;
-        color: var(--quiz-primary);
+        font-family: var(--headline-font);
+        font-size: 1.875rem;
+        color: var(--primary-color);
         margin-bottom: 1.5rem;
       }
       .quiz-screen h3 {
-        font-size: 1.875rem; /* text-2xl */
-        line-height: 2.25rem;
-        font-weight: 700;
+        font-family: var(--headline-font);
+        font-size: 1.5rem;
         margin-bottom: 1rem;
       }
-      .quiz-screen p {
-        color: var(--quiz-text-medium);
-      }
+      .quiz-input,
       .quiz-textarea {
         width: 100%;
-        height: 8rem;
-        background-color: #374151; /* bg-gray-700 */
+        background-color: #374151;
         color: white;
         padding: 1rem;
         border-radius: 0.5rem;
-        border: 2px solid #4b5563; /* border-gray-600 */
-        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        border: 2px solid #4b5563;
+        font-family: var(--quiz-font);
+        font-size: 1rem;
       }
+      .quiz-textarea {
+        height: 8rem;
+      }
+      .quiz-input:focus,
       .quiz-textarea:focus {
         outline: none;
-        border-color: var(--quiz-primary);
-        box-shadow: 0 0 0 2px var(--quiz-primary);
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 2px var(--primary-color);
       }
       .quiz-nav-button {
-        background-color: var(--quiz-primary);
+        background-color: var(--primary-hover);
         color: white;
         font-weight: 700;
         padding: 0.75rem 2rem;
         border-radius: 0.5rem;
-        transition: transform 0.2s ease, background-color 0.2s ease;
         border: none;
         cursor: pointer;
       }
-      .quiz-nav-button:hover {
-        background-color: var(--quiz-primary-hover);
-        transform: scale(1.05);
-      }
       .quiz-nav-button:disabled {
-        background-color: #4b5563; /* bg-gray-600 */
+        background-color: #4b5563;
         opacity: 0.5;
         cursor: not-allowed;
       }
-      .quiz-nav-button:disabled:hover {
-        transform: none;
-      }
       .quiz-back-button {
-        color: var(--quiz-text-medium);
+        color: var(--text-medium);
         font-weight: 700;
         padding: 0.5rem 1rem;
-        border-radius: 0.5rem;
-        border: none;
         background: transparent;
         cursor: pointer;
-      }
-      .quiz-back-button:hover {
-        background-color: rgba(255, 255, 255, 0.1);
+        border: none;
       }
       .quiz-button-container {
         margin-top: 1.5rem;
@@ -165,80 +170,21 @@
         justify-content: space-between;
         align-items: center;
       }
-      .quiz-button-container.end-only {
-        justify-content: flex-end;
-      }
-      @media (max-width: 640px) {
-        .quiz-content-wrapper {
-          padding: 1.5rem;
-        }
-        .quiz-screen h1 {
-          font-size: 1.75rem;
-          line-height: 2rem;
-        }
-        .quiz-screen h2 {
-          font-size: 1.5rem;
-          line-height: 1.75rem;
-        }
-        .quiz-screen h3 {
-          font-size: 1.5rem;
-          line-height: 1.75rem;
-        }
-        .quiz-start-button {
-          font-size: 1rem;
-          padding: 0.75rem 1.5rem;
-        }
-      }
     </style>
   </head>
-  <body>
-    <!-- Pantalla 0: Botón de Inicio -->
+  <body class="quiz-body">
     <div id="start-button-container" class="quiz-start-button-container">
       <button id="startQuizBtn" class="quiz-start-button">
         Haz el Test Ahora y Descubre tu Energía Real
       </button>
     </div>
 
-    <!-- Contenedor del Quiz Modal (inicialmente oculto) -->
     <div id="quiz-main-container" class="hidden">
       <div id="quiz-content-wrapper" class="quiz-content-wrapper">
-        <!-- Pantalla 1: Introducción -->
         <div id="screen-1" class="quiz-screen">
           <div style="text-align: center">
             <h1>¿Eres el CEO de tu cuerpo...</h1>
             <h2>o solo un asistente agotado?</h2>
-            <div
-              style="
-                max-width: 28rem;
-                margin: 2rem auto;
-                text-align: left;
-                display: flex;
-                flex-direction: column;
-                gap: 0.75rem;
-              "
-            >
-              <p>
-                <span style="color: var(--quiz-secondary); font-weight: bold"
-                  >✓</span
-                >
-                Descubre qué está drenando tu energía.
-              </p>
-              <p>
-                <span style="color: var(--quiz-secondary); font-weight: bold"
-                  >✓</span
-                >
-                Entiende qué necesita tu cuerpo HOY.
-              </p>
-              <p>
-                <span style="color: var(--quiz-secondary); font-weight: bold"
-                  >✓</span
-                >
-                Recibe un biohack natural para aplicar de inmediato.
-              </p>
-            </div>
-            <p style="margin-bottom: 2rem">
-              🧠 Solo 3 preguntas. Resultados en menos de 2 minutos.
-            </p>
             <button
               onclick="showScreen(2)"
               class="quiz-nav-button"
@@ -248,27 +194,21 @@
             </button>
           </div>
         </div>
-
-        <!-- Pantalla 2: Pregunta 1 -->
         <div id="screen-2" class="quiz-screen hidden">
-          <p
-            style="
-              color: var(--quiz-secondary);
-              font-weight: 600;
-              margin-bottom: 0.5rem;
-            "
-          >
-            Pregunta 1/4
+          <p style="color: var(--primary-color); font-weight: 600">
+            Pregunta 1/5
           </p>
           <h3>¿Cómo te sientes energéticamente durante un día típico?</h3>
           <textarea
             id="answer1"
             oninput="validateInput('answer1', 'nextBtn2')"
             class="quiz-textarea"
-            placeholder="Ej: “Empiezo bien pero me apago a media tarde”, “Duermo bien, pero sigo cansado/a”, “Solo funciono con café”..."
+            placeholder="Ej: “Empiezo bien pero me apago a media tarde”..."
           ></textarea>
-          <div class="quiz-button-container end-only">
-            <button
+          <div class="quiz-button-container">
+            <button onclick="showScreen(1)" class="quiz-back-button">
+              Anterior</button
+            ><button
               id="nextBtn2"
               onclick="showScreen(3)"
               class="quiz-nav-button"
@@ -278,30 +218,21 @@
             </button>
           </div>
         </div>
-
-        <!-- Pantalla 3: Pregunta 2 -->
         <div id="screen-3" class="quiz-screen hidden">
-          <p
-            style="
-              color: var(--quiz-secondary);
-              font-weight: 600;
-              margin-bottom: 0.5rem;
-            "
-          >
-            Pregunta 2/4
+          <p style="color: var(--primary-color); font-weight: 600">
+            Pregunta 2/5
           </p>
           <h3>¿Qué hábitos logras sostener... y cuáles no?</h3>
           <textarea
             id="answer2"
             oninput="validateInput('answer2', 'nextBtn3')"
             class="quiz-textarea"
-            placeholder="Ej: “Entreno a diario, pero como mal”, “Suplemento a veces, sin orden”, “No tengo rutina clara”..."
+            placeholder="Ej: “Entreno a diario, pero como mal”..."
           ></textarea>
           <div class="quiz-button-container">
             <button onclick="showScreen(2)" class="quiz-back-button">
-              Anterior
-            </button>
-            <button
+              Anterior</button
+            ><button
               id="nextBtn3"
               onclick="showScreen(4)"
               class="quiz-nav-button"
@@ -311,30 +242,21 @@
             </button>
           </div>
         </div>
-
-        <!-- Pantalla 4: Pregunta 3 -->
         <div id="screen-4" class="quiz-screen hidden">
-          <p
-            style="
-              color: var(--quiz-secondary);
-              font-weight: 600;
-              margin-bottom: 0.5rem;
-            "
-          >
-            Pregunta 3/4
+          <p style="color: var(--primary-color); font-weight: 600">
+            Pregunta 3/5
           </p>
           <h3>¿Qué te gustaría mejorar en tu cuerpo o mente ahora mismo?</h3>
           <textarea
             id="answer3"
             oninput="validateInput('answer3', 'nextBtn4')"
             class="quiz-textarea"
-            placeholder="Ej: “Tener más foco mental”, “Dormir bien sin ansiedad”, “Sentirme más liviano/a y enfocado/a”..."
+            placeholder="Ej: “Tener más foco mental”, “Dormir bien sin ansiedad”..."
           ></textarea>
           <div class="quiz-button-container">
             <button onclick="showScreen(3)" class="quiz-back-button">
-              Anterior
-            </button>
-            <button
+              Anterior</button
+            ><button
               id="nextBtn4"
               onclick="showScreen(5)"
               class="quiz-nav-button"
@@ -344,37 +266,63 @@
             </button>
           </div>
         </div>
-
-        <!-- Pantalla 5: Pregunta 4 (Opcional) -->
         <div id="screen-5" class="quiz-screen hidden">
-          <p
+          <p style="color: var(--primary-color); font-weight: 600">Paso 4/5</p>
+          <h3>Casi terminamos. ¿A dónde enviamos tus resultados?</h3>
+          <div
             style="
-              color: var(--quiz-secondary);
-              font-weight: 600;
-              margin-bottom: 0.5rem;
+              display: flex;
+              flex-direction: column;
+              gap: 1rem;
+              margin-top: 1rem;
             "
           >
-            Pregunta 4/4 (Opcional)
+            <input
+              type="text"
+              id="nombre"
+              oninput="validateContactForm()"
+              class="quiz-input"
+              placeholder="Tu nombre"
+            />
+            <input
+              type="email"
+              id="email"
+              oninput="validateContactForm()"
+              class="quiz-input"
+              placeholder="Tu mejor email"
+            />
+          </div>
+          <div class="quiz-button-container">
+            <button onclick="showScreen(4)" class="quiz-back-button">
+              Anterior</button
+            ><button
+              id="nextBtn5"
+              onclick="showScreen(6)"
+              class="quiz-nav-button"
+              disabled
+            >
+              Siguiente
+            </button>
+          </div>
+        </div>
+        <div id="screen-6" class="quiz-screen hidden">
+          <p style="color: var(--primary-color); font-weight: 600">
+            Pregunta 5/5 (Opcional)
           </p>
           <h3>¿En qué momento del día sientes que se cae tu energía?</h3>
           <textarea
             id="answer4"
             class="quiz-textarea"
-            placeholder="Ej: “A media tarde”, “Después de comer”, “En la noche, no logro apagarme”..."
+            placeholder="Ej: “A media tarde”, “Después de comer”..."
           ></textarea>
           <div class="quiz-button-container">
-            <button onclick="showScreen(4)" class="quiz-back-button">
-              Anterior
-            </button>
-            <button
-              id="nextBtn5"
-              onclick="sendDataAndRedirect()"
+            <button onclick="showScreen(5)" class="quiz-back-button">
+              Anterior</button
+            ><button
+              id="nextBtn6"
+              onclick="saveDataAndRedirect()"
               class="quiz-nav-button"
-              style="
-                background-color: var(--quiz-green);
-                padding: 0.75rem 2.5rem;
-                font-size: 1.125rem;
-              "
+              style="background-color: var(--green-color)"
             >
               Ver mis resultados
             </button>
@@ -384,74 +332,53 @@
     </div>
 
     <script>
-      // --- LÓGICA PRINCIPAL DEL QUIZ ---
-
       function showScreen(screenNumber) {
-        const screens = document.querySelectorAll(".quiz-screen");
-        screens.forEach((s) => s.classList.add("hidden"));
+        document
+          .querySelectorAll(".quiz-screen")
+          .forEach((s) => s.classList.add("hidden"));
         const nextScreen = document.getElementById(`screen-${screenNumber}`);
-        if (nextScreen) {
-          nextScreen.classList.remove("hidden");
-        }
+        if (nextScreen) nextScreen.classList.remove("hidden");
       }
-
       function validateInput(textareaId, buttonId) {
-        const textarea = document.getElementById(textareaId);
         const button = document.getElementById(buttonId);
-        if (button) {
-          button.disabled = textarea.value.trim() === "";
-        }
+        if (button)
+          button.disabled =
+            document.getElementById(textareaId).value.trim() === "";
       }
-
-      async function sendDataAndRedirect() {
-        const webhookURL =
-          "https://hook.us2.make.com/qq66gdowwxywndlthvfahclujongysln";
-        const finalButton = document.getElementById("nextBtn5");
-
+      function validateContactForm() {
+        const name = document.getElementById("nombre").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const button = document.getElementById("nextBtn5");
+        if (button)
+          button.disabled = !(
+            name !== "" && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+          );
+      }
+      function saveDataAndRedirect() {
         const data = {
+          nombre: document.getElementById("nombre").value.trim(),
+          email: document.getElementById("email").value.trim(),
           pregunta1: document.getElementById("answer1").value.trim(),
           pregunta2: document.getElementById("answer2").value.trim(),
           pregunta3: document.getElementById("answer3").value.trim(),
           pregunta4: document.getElementById("answer4").value.trim(),
         };
-
-        if (finalButton) {
-          finalButton.disabled = true;
-          finalButton.innerText = "Analizando...";
-        }
-
-        try {
-          await fetch(webhookURL, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data),
-          });
-        } catch (error) {
-          console.error("Error en la solicitud fetch:", error);
-        } finally {
-          window.location.href =
-            "https://soulinmotion.empoderamientoesencial.com/thanks-page";
-        }
+        // Usamos sessionStorage para que los datos no persistan indefinidamente.
+        sessionStorage.setItem("quizResults", JSON.stringify(data));
+        // Asegúrate que esta URL sea la correcta para tu página de resultados.
+        window.location.href =
+          "https://soulinmotion.empoderamientoesencial.com/thanks-page";
       }
-
-      // --- CÓDIGO DE INICIALIZACIÓN Y CORRECCIÓN PARA GOHIGHLEVEL ---
       document.addEventListener("DOMContentLoaded", () => {
         const startButton = document.getElementById("startQuizBtn");
         const quizModal = document.getElementById("quiz-main-container");
-        const startButtonContainer = document.getElementById(
-          "start-button-container"
-        );
-
-        if (startButton && quizModal && startButtonContainer) {
-          // Mueve el modal al body para escapar de los contenedores de GHL
+        if (startButton && quizModal) {
           document.body.appendChild(quizModal);
-
           startButton.addEventListener("click", () => {
-            startButtonContainer.style.display = "none";
+            document.getElementById("start-button-container").style.display =
+              "none";
             quizModal.classList.remove("hidden");
-            setTimeout(() => {
-              quizModal.classList.add("visible");
-            }, 10); // Pequeño delay para que la transición CSS se aplique
+            setTimeout(() => quizModal.classList.add("visible"), 10);
             showScreen(1);
           });
         }

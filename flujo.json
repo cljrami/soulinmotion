@@ -1,0 +1,1546 @@
+{
+    "name": "Soul In Motion",
+    "flow": [
+        {
+            "id": 1,
+            "module": "gateway:CustomWebHook",
+            "version": 1,
+            "parameters": {
+                "hook": 982187,
+                "maxResults": 1
+            },
+            "mapper": {},
+            "metadata": {
+                "designer": {
+                    "x": 0,
+                    "y": 0
+                },
+                "restore": {
+                    "parameters": {
+                        "hook": {
+                            "data": {
+                                "editable": "true"
+                            },
+                            "label": "soulinmotion"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "hook",
+                        "type": "hook:gateway-webhook",
+                        "label": "Webhook",
+                        "required": true
+                    },
+                    {
+                        "name": "maxResults",
+                        "type": "number",
+                        "label": "Maximum number of results"
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "pregunta1",
+                        "type": "text"
+                    },
+                    {
+                        "name": "pregunta2",
+                        "type": "text"
+                    },
+                    {
+                        "name": "pregunta3",
+                        "type": "text"
+                    },
+                    {
+                        "name": "pregunta4",
+                        "type": "text"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 3,
+            "module": "google-sheets:addRow",
+            "version": 2,
+            "parameters": {
+                "__IMTCONN__": 2654940
+            },
+            "mapper": {
+                "from": "drive",
+                "mode": "select",
+                "values": {
+                    "0": "{{1.pregunta1}}",
+                    "1": "{{1.pregunta2}}",
+                    "2": "{{1.pregunta3}}",
+                    "3": "{{1.pregunta4}}",
+                    "4": "{{1.nombre}}",
+                    "5": "{{1.email}}"
+                },
+                "sheetId": "Hoja 1",
+                "spreadsheetId": "/10_kO9laPUs0mlqCd78II-Vzs3YaWBjq3/1XlVv5ePKhCLXtBe2sPnCTkW-GAhNY9gPKdQevwSij6o",
+                "includesHeaders": true,
+                "insertDataOption": "INSERT_ROWS",
+                "valueInputOption": "USER_ENTERED",
+                "insertUnformatted": false
+            },
+            "metadata": {
+                "designer": {
+                    "x": 328,
+                    "y": -10
+                },
+                "restore": {
+                    "expect": {
+                        "from": {
+                            "label": "My Drive"
+                        },
+                        "mode": {
+                            "label": "Search by path"
+                        },
+                        "sheetId": {
+                            "label": "Hoja 1"
+                        },
+                        "spreadsheetId": {
+                            "path": [
+                                "Automatizacion SoulInMotion",
+                                "SoulInMotion"
+                            ]
+                        },
+                        "includesHeaders": {
+                            "label": "Yes",
+                            "nested": [
+                                {
+                                    "name": "values",
+                                    "spec": [
+                                        {
+                                            "name": "0",
+                                            "type": "text",
+                                            "label": "A"
+                                        },
+                                        {
+                                            "name": "1",
+                                            "type": "text",
+                                            "label": "B"
+                                        },
+                                        {
+                                            "name": "2",
+                                            "type": "text",
+                                            "label": "C"
+                                        },
+                                        {
+                                            "name": "3",
+                                            "type": "text",
+                                            "label": "D"
+                                        },
+                                        {
+                                            "name": "4",
+                                            "type": "text",
+                                            "label": "E"
+                                        },
+                                        {
+                                            "name": "5",
+                                            "type": "text",
+                                            "label": "F"
+                                        },
+                                        {
+                                            "name": "6",
+                                            "type": "text",
+                                            "label": "G"
+                                        },
+                                        {
+                                            "name": "7",
+                                            "type": "text",
+                                            "label": "H"
+                                        },
+                                        {
+                                            "name": "8",
+                                            "type": "text",
+                                            "label": "I"
+                                        },
+                                        {
+                                            "name": "9",
+                                            "type": "text",
+                                            "label": "J"
+                                        },
+                                        {
+                                            "name": "10",
+                                            "type": "text",
+                                            "label": "K"
+                                        },
+                                        {
+                                            "name": "11",
+                                            "type": "text",
+                                            "label": "L"
+                                        },
+                                        {
+                                            "name": "12",
+                                            "type": "text",
+                                            "label": "M"
+                                        },
+                                        {
+                                            "name": "13",
+                                            "type": "text",
+                                            "label": "N"
+                                        },
+                                        {
+                                            "name": "14",
+                                            "type": "text",
+                                            "label": "O"
+                                        },
+                                        {
+                                            "name": "15",
+                                            "type": "text",
+                                            "label": "P"
+                                        },
+                                        {
+                                            "name": "16",
+                                            "type": "text",
+                                            "label": "Q"
+                                        },
+                                        {
+                                            "name": "17",
+                                            "type": "text",
+                                            "label": "R"
+                                        },
+                                        {
+                                            "name": "18",
+                                            "type": "text",
+                                            "label": "S"
+                                        },
+                                        {
+                                            "name": "19",
+                                            "type": "text",
+                                            "label": "T"
+                                        },
+                                        {
+                                            "name": "20",
+                                            "type": "text",
+                                            "label": "U"
+                                        },
+                                        {
+                                            "name": "21",
+                                            "type": "text",
+                                            "label": "V"
+                                        },
+                                        {
+                                            "name": "22",
+                                            "type": "text",
+                                            "label": "W"
+                                        },
+                                        {
+                                            "name": "23",
+                                            "type": "text",
+                                            "label": "X"
+                                        },
+                                        {
+                                            "name": "24",
+                                            "type": "text",
+                                            "label": "Y"
+                                        },
+                                        {
+                                            "name": "25",
+                                            "type": "text",
+                                            "label": "Z"
+                                        }
+                                    ],
+                                    "type": "collection",
+                                    "label": "Values"
+                                }
+                            ]
+                        },
+                        "insertDataOption": {
+                            "mode": "chose",
+                            "label": "Insert rows"
+                        },
+                        "valueInputOption": {
+                            "mode": "chose",
+                            "label": "User entered"
+                        },
+                        "insertUnformatted": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "google"
+                            },
+                            "label": "My Google connection (digitalmagos.marketing@gmail.com)"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:google",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "mode",
+                        "type": "select",
+                        "label": "Search Method",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "select",
+                                "fromAll",
+                                "map"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "insertUnformatted",
+                        "type": "boolean",
+                        "label": "Unformatted",
+                        "required": true
+                    },
+                    {
+                        "name": "valueInputOption",
+                        "type": "select",
+                        "label": "Value input option",
+                        "validate": {
+                            "enum": [
+                                "USER_ENTERED",
+                                "RAW"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "insertDataOption",
+                        "type": "select",
+                        "label": "Insert data option",
+                        "validate": {
+                            "enum": [
+                                "INSERT_ROWS",
+                                "OVERWRITE"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "from",
+                        "type": "select",
+                        "label": "Drive",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "drive",
+                                "share",
+                                "team"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "spreadsheetId",
+                        "type": "file",
+                        "label": "Spreadsheet ID",
+                        "required": true
+                    },
+                    {
+                        "name": "sheetId",
+                        "type": "select",
+                        "label": "Sheet Name",
+                        "required": true
+                    },
+                    {
+                        "name": "includesHeaders",
+                        "type": "select",
+                        "label": "Table contains headers",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                true,
+                                false
+                            ]
+                        }
+                    },
+                    {
+                        "name": "values",
+                        "spec": [
+                            {
+                                "name": "0",
+                                "type": "text",
+                                "label": "A"
+                            },
+                            {
+                                "name": "1",
+                                "type": "text",
+                                "label": "B"
+                            },
+                            {
+                                "name": "2",
+                                "type": "text",
+                                "label": "C"
+                            },
+                            {
+                                "name": "3",
+                                "type": "text",
+                                "label": "D"
+                            },
+                            {
+                                "name": "4",
+                                "type": "text",
+                                "label": "E"
+                            },
+                            {
+                                "name": "5",
+                                "type": "text",
+                                "label": "F"
+                            },
+                            {
+                                "name": "6",
+                                "type": "text",
+                                "label": "G"
+                            },
+                            {
+                                "name": "7",
+                                "type": "text",
+                                "label": "H"
+                            },
+                            {
+                                "name": "8",
+                                "type": "text",
+                                "label": "I"
+                            },
+                            {
+                                "name": "9",
+                                "type": "text",
+                                "label": "J"
+                            },
+                            {
+                                "name": "10",
+                                "type": "text",
+                                "label": "K"
+                            },
+                            {
+                                "name": "11",
+                                "type": "text",
+                                "label": "L"
+                            },
+                            {
+                                "name": "12",
+                                "type": "text",
+                                "label": "M"
+                            },
+                            {
+                                "name": "13",
+                                "type": "text",
+                                "label": "N"
+                            },
+                            {
+                                "name": "14",
+                                "type": "text",
+                                "label": "O"
+                            },
+                            {
+                                "name": "15",
+                                "type": "text",
+                                "label": "P"
+                            },
+                            {
+                                "name": "16",
+                                "type": "text",
+                                "label": "Q"
+                            },
+                            {
+                                "name": "17",
+                                "type": "text",
+                                "label": "R"
+                            },
+                            {
+                                "name": "18",
+                                "type": "text",
+                                "label": "S"
+                            },
+                            {
+                                "name": "19",
+                                "type": "text",
+                                "label": "T"
+                            },
+                            {
+                                "name": "20",
+                                "type": "text",
+                                "label": "U"
+                            },
+                            {
+                                "name": "21",
+                                "type": "text",
+                                "label": "V"
+                            },
+                            {
+                                "name": "22",
+                                "type": "text",
+                                "label": "W"
+                            },
+                            {
+                                "name": "23",
+                                "type": "text",
+                                "label": "X"
+                            },
+                            {
+                                "name": "24",
+                                "type": "text",
+                                "label": "Y"
+                            },
+                            {
+                                "name": "25",
+                                "type": "text",
+                                "label": "Z"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Values"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 2,
+            "module": "openai-gpt-3:CreateCompletion",
+            "version": 1,
+            "parameters": {
+                "__IMTCONN__": 2652980
+            },
+            "mapper": {
+                "model": "gpt-4o",
+                "top_p": "1",
+                "select": "chat",
+                "messages": [
+                    {
+                        "role": "user",
+                        "content": "Actúa como una experta en biohacking, salud integrativa y alto rendimiento consciente. Tu tono debe ser profesional, empático y sin exageraciones. Educa y conecta emocionalmente.\r\n\r\nTu tarea es analizar las respuestas de un usuario a un test sobre su energía, hábitos y rendimiento diario, y devolver **únicamente un objeto JSON** con su perfil energético. NO añadas explicaciones, saludos ni ningún texto fuera del objeto JSON.\r\n\r\nTu diagnóstico debe basarse estrictamente en los 4 perfiles predefinidos que aquí se describen, y asignar uno según las respuestas del usuario.\r\n\r\n---\r\n\r\n**PERFILES ENERGÉTICOS DEFINIDOS:**\r\n\r\n* **PERFIL 1: CEO Neurofatigado**\r\n    * **Síntomas Clave:** Bajones de energía, niebla mental, falta de foco, energía inestable, fatiga al final del día, dificultad para concentrarse, problemas de memoria a corto plazo.\r\n    * **Ingrediente Clave:** Omega 3 (EPA/DHA)\r\n    * **Detalles para el Output JSON:**\r\n        * \"name\": \"CEO Neurofatigado\"\r\n        * \"tagline\": \"Tu mente, aunque brillante, opera con el freno de mano puesto.\"\r\n        * \"bio\": \"<div class=\\\"explanation\\\"><h4><i class=\\\"fas fa-brain\\\"></i> Diagnóstico energético</h4><p>Tu mente sigue funcionando... pero bajo fatiga invisible. Rindes, lideras, ejecutas, pero a costa de niebla mental, irritabilidad, bajones de energía y dependencia del café o la multitarea. Estás sobreexigiendo tu sistema neurológico.</p><h4><i class=\\\"fas fa-microscope\\\"></i> Explicación biológica</h4><p>La falta de Omega 3 (EPA/DHA) afecta la plasticidad neuronal, memoria de trabajo, foco sostenido y modulación emocional. Tu cerebro se mantiene encendido, pero no optimizado.</p><div class=\\\"stat-box\\\"><strong>Dato clave:</strong> Harvard Health (2021): adultos con niveles bajos de Omega 3 tienen 60% más probabilidades de sufrir ansiedad leve, fatiga mental y pérdida de enfoque sostenido.</div><h4><i class=\\\"fas fa-triangle-exclamation\\\"></i> Si no lo corriges…</h4><ul><li>Físicamente: niebla mental crónica, inflamación cerebral, fatiga persistente.</li><li>Productivamente: menor claridad, errores por agotamiento, decisiones más reactivas.</li><li>Emocionalmente: frustración, irritabilidad, desconexión con logros reales.</li></ul><h4><i class=\\\"fas fa-pills\\\"></i> Biohack sugerido</h4><p>Omega 3 (EPA/DHA) – Reactiva la agilidad mental, mejora tu enfoque y reduce la inflamación cerebral.</p><h4><i class=\\\"fas fa-seedling\\\"></i> Plan estratégico – 4 pasos simples</h4><ol><li>Toma 2 capsulas de Omega 3 en el desayuno todos los días</li><li>Haz una pausa mental de 5 min cada 90 minutos de trabajo</li><li>Prioriza 1 sola tarea de alto impacto por día.</li><li>Toma 2 capsulas de omega 3 con tu cena , ya que te ayudara a tener un sueño reparador.</li></ol><p>Tu mente no necesita más fuerza de voluntad. Necesita combustible real.</p><p>👉 Descubre cómo activar tu energía cerebral con tu protocolo de 21 días + mi guía personal.</p></div>\"\r\n        * \"consequences\": \"Si no abordas esta neurofatiga, podrías experimentar una disminución progresiva en tu capacidad de decisión, errores frecuentes por falta de concentración, irritabilidad por la frustración constante, y un agotamiento que te impide disfrutar de tu vida personal y mantener tu nivel productivo a largo plazo. Tu potencial está siendo limitado por una mente que no rinde a su capacidad.\"\r\n        * \"stat\": \"Estudios sugieren que la fatiga mental reduce la productividad hasta en un 50% en tareas cognitivas complejas.\"\r\n        * \"ingredient\": \"Omega 3 (EPA/DHA)\"\r\n        * \"plan\": [\"Paso 1: Establece micro-descansos programados cada 60-90 minutos para desconectar tu mente por completo (5-10 minutos).\", \"Paso 2: Incorpora una fuente de ácidos grasos saludables diariamente, como aguacate, nueces o semillas de chía, que nutren tu cerebro.\", \"Paso 3: Prioriza la hidratación constante con agua pura y electrolitos naturales para optimizar la función cerebral.\"]\r\n        * \"cta\": \"Sientes el llamado a recuperar esa chispa mental? Descubre cómo desbloquear tu máximo rendimiento y claridad con el enfoque correcto.\"\r\n\r\n* **PERFIL 2: Directivo Inflamado**\r\n    * **Síntomas Clave:** Dolor físico persistente, tensión muscular, inflamación crónica general, articulaciones rígidas, piel reactiva (rojeces, sensibilidad), digestión irregular con sensación de ardor o pesadez.\r\n    * **Ingrediente Clave:** Polifenoles naturales antiinflamatorios\r\n    * **Detalles para el Output JSON:**\r\n        * \"name\": \"Directivo Inflamado\"\r\n        * \"tagline\": \"Tu cuerpo, un templo bajo asedio silencioso.\"\r\n        * \"bio\": \"<div class=\\\"explanation\\\"><h4><i class=\\\"fas fa-fire\\\"></i> Diagnóstico energético</h4><p>Estás presente, activo/a, funcional. Pero tu cuerpo está pagando el precio: inflamación articular, tensión muscular, dolor crónico o fatiga física sin explicación. No estás envejeciendo, estás colapsando en silencio.</p><h4><i class=\\\"fas fa-microscope\\\"></i> Explicación biológica</h4><p>La inflamación sistémica ocurre cuando el cuerpo no logra regenerarse. Afecta músculos, tendones, órganos, piel y articulaciones. El estrés físico y químico sostenido activa citocinas proinflamatorias que se acumulan.</p><div class=\\\"stat-box\\\"><strong>Dato clave:</strong> Frontiers in Physiology (2018): el 40% de adultos activos presenta inflamación silenciosa que reduce su rendimiento físico y acelera el deterioro muscular y articular.</div><h4><i class=\\\"fas fa-triangle-exclamation\\\"></i> Si no lo corriges…</h4><ul><li>Físicamente: dolores persistentes, menor movilidad, sensación de pesadez interna</li><li>Productivamente: energía inconstante, incomodidad en el cuerpo, irritabilidad post-esfuerzo</li><li>Emocionalmente: frustración, sensación de estar atrapado/a en un cuerpo lento</li></ul><h4><i class=\\\"fas fa-pills\\\"></i> Biohack sugerido</h4><p>Deep Blue Polyphenol Complex – Antiinflamatorio natural profundo, alivia dolor físico y modula estrés corporal.</p><h4><i class=\\\"fas fa-seedling\\\"></i> Plan estratégico – 3 pasos simples</h4><ol><li>Toma tu suplemento después de alimentos, 1 en la mañana y 1 en la noche.</li><li>Realiza un escaneo corporal diario de 2 minutos (mindfulness físico)</li><li>Integra estiramientos o automasaje, 5 min diarios</li></ol><h4><i class=\\\"fas fa-heart-pulse\\\"></i> CTA emocional</h4><p>Tu cuerpo no es el obstáculo. Es el vehículo.</p><p>👉 Inicia tu protocolo para calmar la inflamación silenciosa y recuperar tu fuerza.</p></div>\"\r\n        * \"consequences\": \"Ignorar la inflamación crónica puede llevar a un deterioro articular acelerado, problemas digestivos persistentes, un sistema inmune debilitado que te hace más propenso a enfermedades, y un ciclo de dolor y malestar que erosiona tu paciencia y tu calidad de vida. Tu vitalidad y tu capacidad de disfrutar plenamente están comprometidas.\"\r\n        * \"stat\": \"La inflamación crónica es un factor subyacente en el 7 de las 10 principales causas de muerte a nivel global.\"\r\n        * \"ingredient\": \"Polifenoles naturales antiinflamatorios\"\r\n        * \"plan\": [\"Paso 1: Elimina azúcares refinados y alimentos procesados de tu dieta por una semana para reducir la carga inflamatoria.\", \"Paso 2: Introduce diariamente alimentos ricos en antioxidantes como bayas, verduras de hoja verde oscuro y cúrcuma fresca.\", \"Paso 3: Dedica 15 minutos al día a estiramientos suaves o yoga para aliviar la tensión muscular y mejorar la circulación.\"]\r\n        * \"cta\": \"¿Lista para liberar tu cuerpo de esta carga y sentir la ligereza que te mereces? Descubre cómo desactivar el fuego interno y recuperar tu bienestar.\"\r\n\r\n* **PERFIL 3: Estratega en Modo Alerta**\r\n    * **Síntomas Clave:** Ansiedad, insomnio, mente acelerada, hiperactividad mental, dificultad para relajarse o dormir, preocupaciones constantes, sensación de estar 'siempre conectado'.\r\n    * **Ingrediente Clave:** Beta-cariofileno\r\n    * **Detalles para el Output JSON:**\r\n        * \"name\": \"Estratega en Modo Alerta\"\r\n        * \"tagline\": \"Tu mente, atrapada en un ciclo incesante de pensamientos.\"\r\n        * \"bio\": \"<div class=\\\"explanation\\\"><h4><i class=\\\"fas fa-exclamation\\\"></i> Diagnóstico energético</h4><p>Estás en control... pero no en paz. Tu mente es aguda, pero tu cuerpo no logra descansar. Sufres insomnio, tensión, hipervigilancia o ansiedad funcional. Estás sobreviviendo desde la activación constante.</p><h4><i class=\\\"fas fa-microscope\\\"></i> Explicación biológica</h4><p>Cuando el cortisol se mantiene elevado, el sistema simpático no se apaga. Esto interfiere con la producción de serotonina y GABA, afectando sueño, equilibrio emocional y capacidad de relajación.</p><div class=\\\"stat-box\\\"><strong>Dato clave:</strong> APA (2017): el 62% de personas con insomnio crónico tienen niveles altos de cortisol durante el día. Esto reduce su capacidad de recuperación neurológica y emocional.</div><h4><i class=\\\"fas fa-triangle-exclamation\\\"></i> Si no lo corriges…</h4><ul><li>Físicamente: insomnio, tensión muscular, fatiga adrenal</li><li>Productivamente: decisiones impulsivas, multitasking sin enfoque real</li><li>Emocionalmente: ansiedad, desconexión, sensación de ahogo interno</li></ul><h4><i class=\\\"fas fa-pills\\\"></i> Biohack sugerido</h4><p>Copaiba Softgels – Actúa sobre el sistema endocannabinoide para calmar el sistema nervioso y mejorar el sueño.</p><h4><i class=\\\"fas fa-seedling\\\"></i> Plan estratégico – 3 pasos simples</h4><ol><li>Toma 2 cápsulas, 1 hora antes de dormir</li><li>Apaga pantallas 30 min antes de acostarte</li><li>Haz journaling simple: 3 líneas de cierre de día o una lectura de 10 min.</li></ol><h4><i class=\\\"fas fa-heart-pulse\\\"></i> CTA emocional</h4><p>Tu mente necesita descansar para liderar mejor.</p><p>👉 Recupera tu ritmo interno con el protocolo de descanso inteligente que diseñé para ti.</p></div>\"\r\n        * \"consequences\": \"Mantenerte en modo alerta te expone a un mayor riesgo de agotamiento adrenal, problemas de concentración por la fatiga mental, irritabilidad constante, decisiones impulsivas por la falta de claridad y un insomnio que te roba la energía para el día siguiente. Tu capacidad para pensar con estrategia y calma está comprometida por esta urgencia constante.\"\r\n        * \"stat\": \"Se estima que el insomnio crónico puede reducir la capacidad cognitiva y de toma de decisiones hasta en un 30%.\"\r\n        * \"ingredient\": \"Beta-cariofileno\"\r\n        * \"plan\": [\"Paso 1: Establece una rutina de sueño estricta, acostándote y levantándote a la misma hora, incluso los fines de semana.\", \"Paso 2: Limita la exposición a pantallas (móviles, tablets, ordenadores) al menos una hora antes de dormir.\", \"Paso 3: Practica 10 minutos de respiración profunda consciente o meditación guiada antes de acostarte para calmar tu mente.\"]\r\n        * \"cta\": \"Anhelas esa calma mental y un descanso reparador? Descubre cómo reconectar con tu paz interior y desatar tu potencial sin agotamiento.\"\r\n\r\n* **PERFIL 4: Líder en Saturación**\r\n    * **Síntomas Clave:** Digestión lenta, hinchazón abdominal frecuente, fatiga digestiva después de las comidas, sobrecarga física y mental, estrés acumulado, dificultad para eliminar toxinas, sensación de pesadez general.\r\n    * **Ingrediente Clave:** Curcumina\r\n    * **Detalles para el Output JSON:**\r\n        * \"name\": \"Líder en Saturación\"\r\n        * \"tagline\": \"Tu sistema, pidiendo a gritos un respiro.\"\r\n        * \"bio\": \"<div class=\\\"explanation\\\"><h4><i class=\\\"fas fa-sad-tear\\\"></i> Diagnóstico energético</h4><p>Sostienes a todos. Funcionas. Pero estás lleno/a. Digestión lenta, inflamación abdominal, irritabilidad emocional y fatiga postcomida son señales claras de que estás operando en sobrecarga.</p><h4><i class=\\\"fas fa-microscope\\\"></i> Explicación biológica</h4><p>El estrés crónico altera la microbiota intestinal, generando inflamación digestiva y afectando la producción de serotonina. El sistema nervioso entérico (intestino) se conecta con el estado anímico y el enfoque.</p><div class=\\\"stat-box\\\"><strong>Dato clave:</strong> Journal of Clinical Psychology (2020): el 70% de la serotonina se produce en el intestino. La inflamación digestiva reduce motivación, enfoque y bienestar emocional sostenido.</div><h4><i class=\\\"fas fa-triangle-exclamation\\\"></i> Si no lo corriges…</h4><ul><li>Físicamente: digestión lenta, distensión, fatiga post comida</li><li>Productivamente: caídas energéticas, desconexión en momentos clave</li><li>Emocionalmente: saturación, sensibilidad extrema, sensación de desborde</li></ul><h4><i class=\\\"fas fa-pills\\\"></i> Biohack sugerido</h4><p>Menta Softgels – Calma digestiva, reduce la inflamación intestinal, regula el sistema desde el centro.</p><h4><i class=\\\"fas fa-seedling\\\"></i> Plan estratégico – 4 pasos simples</h4><ol><li>Toma 1 cápsula por la mañana y 1 por la noche, con tu comida principal</li><li>Haz una pausa (sin estímulo, celular/TV), 15 minutos post comida</li><li>Toma agua tibia con limón (o aceite esencial de limón) al despertar.</li><li>Evita el consumo de lácteos, harinas y azúcares.</li></ol><h4><i class=\\\"fas fa-heart-pulse\\\"></i> CTA emocional</h4><p>No estás funcionando mal. Estás saturado.</p><p>👉 Descubre cómo recuperar claridad desde tu centro digestivo con el protocolo de 21 días.</p></div>\"\r\n        * \"consequences\": \"Si no alivias esta saturación, podrías enfrentar problemas digestivos crónicos, fatiga constante, un sistema inmune comprometido, acumulación de toxinas que afectan tu claridad mental y un agotamiento que te impide liderar con la energía y el entusiasmo que deseas. Tu capacidad de acción y tu bienestar integral están en riesgo.\"\r\n        * \"stat\": \"Un sistema digestivo lento puede reducir la absorción de nutrientes esenciales hasta en un 40%.\"\r\n        * \"ingredient\": \"Curcumina\"\r\n        * \"plan\": [\"Paso 1: Bebe un vaso de agua tibia con limón al despertar para estimular tu sistema digestivo y hepático.\", \"Paso 2: Realiza una caminata ligera de 20-30 minutos después de tus comidas principales para ayudar a la digestión.\", \"Paso 3: Incorpora alimentos fermentados como kéfir, chucrut o kimchi en tu dieta para apoyar tu microbiota intestinal.\"]\r\n        * \"cta\": \"¿Estás lista para aligerar la carga y sentirte revitalizada? Descubre cómo optimizar tu desintoxicación y recuperar la fluidez en tu vida.\"\r\n\r\n---\r\n\r\n**INSTRUCCIÓN FINAL:**\r\n\r\nAhora, analiza estas respuestas del usuario y devuelve **ÚNICAMENTE el objeto JSON** correspondiente al perfil adecuado. Asegúrate de que todos los campos (`name`, `tagline`, `bio`, `consequences`, `stat`, `ingredient`, `plan`, `cta`) estén presentes y sean coherentes con el perfil elegido.\r\n\r\nRespuestas del usuario:\r\n1. Energía durante el día: {{1.pregunta1}}\r\n2. Hábitos y alimentación: {{1.pregunta2}}\r\n3. Cambios deseados: {{1.pregunta3}}\r\n4. Cuándo sientes más caída de energía: {{1.pregunta4}}\r\n",
+                        "imageDetail": "auto"
+                    }
+                ],
+                "max_tokens": "2048",
+                "temperature": "1",
+                "n_completions": "1",
+                "response_format": "json_object",
+                "parseJSONResponse": false
+            },
+            "metadata": {
+                "designer": {
+                    "x": 633,
+                    "y": -11
+                },
+                "restore": {
+                    "expect": {
+                        "stop": {
+                            "mode": "chose"
+                        },
+                        "model": {
+                            "mode": "edit"
+                        },
+                        "select": {
+                            "label": "Create a Chat Completion (GPT and o1 models)"
+                        },
+                        "messages": {
+                            "mode": "chose",
+                            "items": [
+                                {
+                                    "role": {
+                                        "mode": "chose",
+                                        "label": "User"
+                                    },
+                                    "imageDetail": {
+                                        "mode": "chose",
+                                        "label": "Auto"
+                                    },
+                                    "imageInputType": {
+                                        "mode": "chose",
+                                        "label": "Empty"
+                                    }
+                                }
+                            ]
+                        },
+                        "logit_bias": {
+                            "mode": "chose"
+                        },
+                        "tool_choice": {
+                            "mode": "chose",
+                            "label": "Empty"
+                        },
+                        "response_format": {
+                            "mode": "chose",
+                            "label": "JSON Object"
+                        },
+                        "parseJSONResponse": {
+                            "mode": "chose"
+                        },
+                        "additionalParameters": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "openai-gpt-3"
+                            },
+                            "label": "My OpenAI connection"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:openai-gpt-3",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "select",
+                        "type": "select",
+                        "label": "Select Method",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "chat",
+                                "prompt"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "temperature",
+                        "type": "number",
+                        "label": "Temperature",
+                        "validate": {
+                            "max": 2,
+                            "min": 0
+                        }
+                    },
+                    {
+                        "name": "top_p",
+                        "type": "number",
+                        "label": "Top P",
+                        "validate": {
+                            "max": 1,
+                            "min": 0
+                        }
+                    },
+                    {
+                        "name": "n_completions",
+                        "type": "number",
+                        "label": "Number"
+                    },
+                    {
+                        "name": "frequency_penalty",
+                        "type": "number",
+                        "label": "Frequency Penalty",
+                        "validate": {
+                            "max": 2,
+                            "min": -2
+                        }
+                    },
+                    {
+                        "name": "presence_penalty",
+                        "type": "number",
+                        "label": "Presence Penalty",
+                        "validate": {
+                            "max": 2,
+                            "min": -2
+                        }
+                    },
+                    {
+                        "name": "logit_bias",
+                        "spec": {
+                            "name": "value",
+                            "spec": [
+                                {
+                                    "name": "token",
+                                    "type": "text",
+                                    "label": "Token ID",
+                                    "required": true
+                                },
+                                {
+                                    "name": "probability",
+                                    "type": "number",
+                                    "label": "Probability",
+                                    "required": true,
+                                    "validate": {
+                                        "max": 100,
+                                        "min": -100
+                                    }
+                                }
+                            ],
+                            "type": "collection",
+                            "label": "Token Probability"
+                        },
+                        "type": "array",
+                        "label": "Token Probability"
+                    },
+                    {
+                        "name": "seed",
+                        "type": "integer",
+                        "label": "Seed"
+                    },
+                    {
+                        "name": "tool_choice",
+                        "type": "select",
+                        "label": "Tool Choice",
+                        "validate": {
+                            "enum": [
+                                "none",
+                                "auto",
+                                "required"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "stop",
+                        "spec": {
+                            "name": "value",
+                            "type": "text",
+                            "label": "Stop Sequence"
+                        },
+                        "type": "array",
+                        "label": "Stop Sequences",
+                        "validate": {
+                            "maxItems": 4
+                        }
+                    },
+                    {
+                        "name": "additionalParameters",
+                        "spec": {
+                            "name": "value",
+                            "spec": [
+                                {
+                                    "name": "key",
+                                    "type": "text",
+                                    "label": "Parameter Name",
+                                    "required": true
+                                },
+                                {
+                                    "name": "type",
+                                    "type": "select",
+                                    "label": "Input Type",
+                                    "options": [
+                                        {
+                                            "label": "Text",
+                                            "value": "text",
+                                            "nested": [
+                                                {
+                                                    "name": "value",
+                                                    "type": "text",
+                                                    "label": "Parameter Value"
+                                                }
+                                            ],
+                                            "default": true
+                                        },
+                                        {
+                                            "label": "Number",
+                                            "value": "number",
+                                            "nested": [
+                                                {
+                                                    "name": "value",
+                                                    "type": "number",
+                                                    "label": "Parameter Value"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label": "Boolean",
+                                            "value": "boolean",
+                                            "nested": [
+                                                {
+                                                    "name": "value",
+                                                    "type": "boolean",
+                                                    "label": "Parameter Value"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label": "Date",
+                                            "value": "date",
+                                            "nested": [
+                                                {
+                                                    "name": "value",
+                                                    "type": "date",
+                                                    "label": "Parameter Value"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label": "Any",
+                                            "value": "any",
+                                            "nested": [
+                                                {
+                                                    "name": "value",
+                                                    "type": "any",
+                                                    "label": "Parameter Value"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ],
+                            "type": "collection",
+                            "label": "Input Parameter"
+                        },
+                        "type": "array",
+                        "label": "Other Input Parameters"
+                    },
+                    {
+                        "name": "model",
+                        "type": "select",
+                        "label": "Model",
+                        "required": true
+                    },
+                    {
+                        "name": "max_tokens",
+                        "type": "uinteger",
+                        "label": "Max Completion Tokens"
+                    },
+                    {
+                        "name": "messages",
+                        "spec": {
+                            "name": "value",
+                            "spec": [
+                                {
+                                    "name": "role",
+                                    "type": "select",
+                                    "label": "Role",
+                                    "options": {
+                                        "store": [
+                                            {
+                                                "label": "User",
+                                                "value": "user",
+                                                "nested": [
+                                                    {
+                                                        "help": "Text content of the message on behalf of the selected __Role__.",
+                                                        "name": "content",
+                                                        "type": "text",
+                                                        "label": "Text Content"
+                                                    },
+                                                    {
+                                                        "name": "imageInputType",
+                                                        "type": "select",
+                                                        "label": "Image Input Type",
+                                                        "options": [
+                                                            {
+                                                                "label": "URL",
+                                                                "value": "url",
+                                                                "nested": [
+                                                                    {
+                                                                        "help": "Make sure to use a publicly accessible URL.\nYou can test if your image is publicly accessible by opening the link in an incognito tab.",
+                                                                        "name": "imageUrl",
+                                                                        "type": "url",
+                                                                        "label": "Image URL"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "label": "Image File",
+                                                                "value": "file",
+                                                                "nested": [
+                                                                    {
+                                                                        "name": "imageFile",
+                                                                        "spec": [
+                                                                            {
+                                                                                "help": "Accepted extensions: `.jpg`, `.jpeg`, `.png`, `.webp` and `.gif`.",
+                                                                                "name": "imageFilename",
+                                                                                "type": "filename",
+                                                                                "label": "Image Filename",
+                                                                                "semantic": "file:name",
+                                                                                "extension": [
+                                                                                    "jpg",
+                                                                                    "jpeg",
+                                                                                    "png",
+                                                                                    "webp",
+                                                                                    "gif"
+                                                                                ]
+                                                                            },
+                                                                            {
+                                                                                "name": "imageData",
+                                                                                "type": "buffer",
+                                                                                "label": "Image Data",
+                                                                                "semantic": "file:data"
+                                                                            }
+                                                                        ],
+                                                                        "type": "collection",
+                                                                        "label": "Image"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ],
+                                                        "mappable": false
+                                                    },
+                                                    {
+                                                        "help": "Recommended value: `Auto`",
+                                                        "name": "imageDetail",
+                                                        "type": "select",
+                                                        "label": "Image Detail",
+                                                        "options": [
+                                                            {
+                                                                "label": "Auto",
+                                                                "value": "auto",
+                                                                "default": true
+                                                            },
+                                                            {
+                                                                "label": "High",
+                                                                "value": "high"
+                                                            },
+                                                            {
+                                                                "label": "Low",
+                                                                "value": "low"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "label": "Assistant",
+                                                "value": "assistant",
+                                                "nested": [
+                                                    {
+                                                        "help": "Text content of the message on behalf of the selected __Role__.",
+                                                        "name": "content",
+                                                        "type": "text",
+                                                        "label": "Text Content"
+                                                    },
+                                                    {
+                                                        "mode": "edit",
+                                                        "name": "tool_calls",
+                                                        "spec": {
+                                                            "spec": [
+                                                                {
+                                                                    "name": "type",
+                                                                    "type": "hidden",
+                                                                    "default": "function"
+                                                                },
+                                                                {
+                                                                    "help": "Map this directly from the output of a previous **Create a Completion** module. Look for `Choices[]: Message.Tool Calls[]: ID`.",
+                                                                    "name": "id",
+                                                                    "type": "text",
+                                                                    "label": "Tool call ID"
+                                                                },
+                                                                {
+                                                                    "name": "function",
+                                                                    "spec": [
+                                                                        {
+                                                                            "help": "The name of the function previously called.",
+                                                                            "name": "name",
+                                                                            "type": "text",
+                                                                            "label": "Name",
+                                                                            "required": true
+                                                                        },
+                                                                        {
+                                                                            "help": "The arguments previously output by the AI.",
+                                                                            "name": "arguments",
+                                                                            "type": "text",
+                                                                            "label": "Arguments",
+                                                                            "required": true
+                                                                        }
+                                                                    ],
+                                                                    "type": "collection",
+                                                                    "label": "Function"
+                                                                }
+                                                            ],
+                                                            "type": "collection",
+                                                            "label": "Tool Call"
+                                                        },
+                                                        "type": "array",
+                                                        "label": "Tool Calls",
+                                                        "labels": {
+                                                            "add": "Add tool call"
+                                                        },
+                                                        "mappable": {
+                                                            "help": "You can map the entire `Choices[]: Message.Tool Calls` array from a previous Create a Completion module here."
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "label": "Developer / System",
+                                                "value": "system",
+                                                "nested": [
+                                                    {
+                                                        "help": "Text content of the message on behalf of the selected __Role__.",
+                                                        "name": "content",
+                                                        "type": "text",
+                                                        "label": "Text Content"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "label": "Tool",
+                                                "value": "tool",
+                                                "nested": [
+                                                    {
+                                                        "help": "The return of the function. This role should only be used when you have processed a previous function call and want to send the output of the function execution back to the AI.",
+                                                        "name": "content",
+                                                        "type": "text",
+                                                        "label": "Text Content",
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "help": "Map this directly from the output of a previous **Create a Completion** module. Look for `Choices[]: Message.Tool Calls[]: ID`.",
+                                                        "name": "tool_call_id",
+                                                        "type": "text",
+                                                        "label": "Tool Call ID.",
+                                                        "required": true
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    "required": true
+                                }
+                            ],
+                            "type": "collection",
+                            "label": "Message"
+                        },
+                        "type": "array",
+                        "label": "Messages",
+                        "required": true
+                    },
+                    {
+                        "name": "response_format",
+                        "type": "select",
+                        "label": "Response Format",
+                        "validate": {
+                            "enum": [
+                                "text",
+                                "json_object"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "prediction",
+                        "type": "text",
+                        "label": "Predicted Outputs"
+                    },
+                    {
+                        "name": "parseJSONResponse",
+                        "type": "boolean",
+                        "label": "Parse JSON Response",
+                        "required": true
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "result",
+                        "type": "any",
+                        "label": "Result"
+                    },
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "ID"
+                    },
+                    {
+                        "name": "object",
+                        "type": "text",
+                        "label": "Object"
+                    },
+                    {
+                        "name": "created",
+                        "type": "date",
+                        "label": "Created"
+                    },
+                    {
+                        "name": "model",
+                        "type": "text",
+                        "label": "Model"
+                    },
+                    {
+                        "name": "choices",
+                        "spec": [
+                            {
+                                "name": "text",
+                                "type": "text",
+                                "label": "Text"
+                            },
+                            {
+                                "name": "index",
+                                "type": "number",
+                                "label": "Index"
+                            },
+                            {
+                                "name": "logprobs",
+                                "type": "text",
+                                "label": "Log Probs"
+                            },
+                            {
+                                "name": "finish_reason",
+                                "type": "text",
+                                "label": "Finish Reason"
+                            },
+                            {
+                                "name": "message",
+                                "spec": [
+                                    {
+                                        "name": "role",
+                                        "type": "text",
+                                        "label": "Role"
+                                    },
+                                    {
+                                        "name": "content",
+                                        "type": "text",
+                                        "label": "Content"
+                                    },
+                                    {
+                                        "name": "tool_calls",
+                                        "spec": [
+                                            {
+                                                "name": "id",
+                                                "type": "text",
+                                                "label": "ID"
+                                            },
+                                            {
+                                                "name": "type",
+                                                "type": "text",
+                                                "label": "Type"
+                                            },
+                                            {
+                                                "name": "function",
+                                                "spec": [
+                                                    {
+                                                        "name": "name",
+                                                        "type": "text",
+                                                        "label": "Name"
+                                                    },
+                                                    {
+                                                        "name": "arguments",
+                                                        "type": "text",
+                                                        "label": "Arguments"
+                                                    }
+                                                ],
+                                                "type": "collection",
+                                                "label": "Function"
+                                            }
+                                        ],
+                                        "type": "array",
+                                        "label": "Tool Calls"
+                                    },
+                                    {
+                                        "name": "refusal",
+                                        "type": "text",
+                                        "label": "Refusal"
+                                    },
+                                    {
+                                        "name": "annotations",
+                                        "spec": [
+                                            {
+                                                "name": "type",
+                                                "type": "text",
+                                                "label": "Type"
+                                            },
+                                            {
+                                                "name": "url_citation",
+                                                "spec": [
+                                                    {
+                                                        "name": "end_index",
+                                                        "type": "number",
+                                                        "label": "End Index"
+                                                    },
+                                                    {
+                                                        "name": "start_index",
+                                                        "type": "number",
+                                                        "label": "Start Index"
+                                                    },
+                                                    {
+                                                        "name": "title",
+                                                        "type": "text",
+                                                        "label": "Title"
+                                                    },
+                                                    {
+                                                        "name": "url",
+                                                        "type": "text",
+                                                        "label": "URL"
+                                                    }
+                                                ],
+                                                "type": "collection",
+                                                "label": "URL Citation"
+                                            }
+                                        ],
+                                        "type": "array",
+                                        "label": "Annotations"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Message"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Choices"
+                    },
+                    {
+                        "name": "usage",
+                        "spec": [
+                            {
+                                "name": "prompt_tokens",
+                                "type": "number",
+                                "label": "Prompt Tokens"
+                            },
+                            {
+                                "name": "completion_tokens",
+                                "type": "text",
+                                "label": "Completion Tokens"
+                            },
+                            {
+                                "name": "total_tokens",
+                                "type": "number",
+                                "label": "Total Tokens"
+                            },
+                            {
+                                "name": "prompt_tokens_details",
+                                "spec": [
+                                    {
+                                        "name": "cached_tokens",
+                                        "type": "uinteger",
+                                        "label": "Cached Tokens"
+                                    },
+                                    {
+                                        "name": "text_tokens",
+                                        "type": "uinteger",
+                                        "label": "Text Tokens"
+                                    },
+                                    {
+                                        "name": "image_tokens",
+                                        "type": "uinteger",
+                                        "label": "Image Tokens"
+                                    },
+                                    {
+                                        "name": "audio_tokens",
+                                        "type": "uinteger",
+                                        "label": "Audio Tokens"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Prompt Tokens Details"
+                            },
+                            {
+                                "name": "completion_tokens_details",
+                                "spec": [
+                                    {
+                                        "name": "reasoning_tokens",
+                                        "type": "uinteger",
+                                        "label": "Reasoning Tokens"
+                                    },
+                                    {
+                                        "name": "text_tokens",
+                                        "type": "uinteger",
+                                        "label": "Text Tokens"
+                                    },
+                                    {
+                                        "name": "audio_tokens",
+                                        "type": "uinteger",
+                                        "label": "Audio Tokens"
+                                    },
+                                    {
+                                        "name": "accepted_prediction_tokens",
+                                        "type": "uinteger",
+                                        "label": "Accepted Prediction Tokens"
+                                    },
+                                    {
+                                        "name": "rejected_prediction_tokens",
+                                        "type": "uinteger",
+                                        "label": "Rejected Prediction Tokens"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Completion Tokens Details"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Usage"
+                    },
+                    {
+                        "name": "service_tier",
+                        "type": "text",
+                        "label": "Service Tier"
+                    },
+                    {
+                        "name": "system_fingerprint",
+                        "type": "text",
+                        "label": "System Fingerprint"
+                    }
+                ],
+                "advanced": true
+            }
+        },
+        {
+            "id": 4,
+            "module": "json:ParseJSON",
+            "version": 1,
+            "parameters": {
+                "type": ""
+            },
+            "mapper": {
+                "json": "{{2.choices[].message.content}}"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 944,
+                    "y": -6
+                },
+                "restore": {
+                    "parameters": {
+                        "type": {
+                            "label": "Choose a data structure"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "type",
+                        "type": "udt",
+                        "label": "Data structure"
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "json",
+                        "type": "text",
+                        "label": "JSON string",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        {
+            "id": 5,
+            "module": "gateway:WebhookRespond",
+            "version": 1,
+            "parameters": {},
+            "mapper": {
+                "body": "{{`4`}}",
+                "status": "200",
+                "headers": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Access-Control-Allow-Origin",
+                        "value": "*"
+                    }
+                ]
+            },
+            "metadata": {
+                "designer": {
+                    "x": 1300,
+                    "y": -2
+                },
+                "restore": {
+                    "expect": {
+                        "headers": {
+                            "mode": "chose",
+                            "items": [
+                                null,
+                                null
+                            ]
+                        }
+                    }
+                },
+                "expect": [
+                    {
+                        "name": "status",
+                        "type": "uinteger",
+                        "label": "Status",
+                        "required": true,
+                        "validate": {
+                            "min": 100
+                        }
+                    },
+                    {
+                        "name": "body",
+                        "type": "any",
+                        "label": "Body"
+                    },
+                    {
+                        "name": "headers",
+                        "spec": [
+                            {
+                                "name": "key",
+                                "type": "text",
+                                "label": "Key",
+                                "required": true,
+                                "validate": {
+                                    "max": 256
+                                }
+                            },
+                            {
+                                "name": "value",
+                                "type": "text",
+                                "label": "Value",
+                                "required": true,
+                                "validate": {
+                                    "max": 4096
+                                }
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Custom headers",
+                        "validate": {
+                            "maxItems": 16
+                        }
+                    }
+                ],
+                "advanced": true
+            }
+        },
+        {
+            "id": 6,
+            "module": "google-email:ActionSendEmail",
+            "version": 2,
+            "parameters": {
+                "account": 4475717
+            },
+            "mapper": {
+                "cc": [],
+                "to": [
+                    "{{1.email}}"
+                ],
+                "bcc": [],
+                "from": "",
+                "html": "<!DOCTYPE html>\r\n<html lang=\"es\">\r\n  <head>\r\n    <meta charset=\"UTF-8\" />\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\r\n    <title>Tu Diagnóstico Energético está listo</title>\r\n    <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\" />\r\n    <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin />\r\n    <link\r\n      href=\"https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap\"\r\n      rel=\"stylesheet\"\r\n    />\r\n    <style>\r\n      /* Estilos generales y para clientes que no soportan CSS en el head */\r\n      body,\r\n      table,\r\n      td,\r\n      a {\r\n        -webkit-text-size-adjust: 100%;\r\n        -ms-text-size-adjust: 100%;\r\n      }\r\n      table,\r\n      td {\r\n        mso-table-lspace: 0pt;\r\n        mso-table-rspace: 0pt;\r\n      }\r\n      img {\r\n        -ms-interpolation-mode: bicubic;\r\n        border: 0;\r\n        height: auto;\r\n        line-height: 100%;\r\n        outline: none;\r\n        text-decoration: none;\r\n      }\r\n      table {\r\n        border-collapse: collapse !important;\r\n      }\r\n      body {\r\n        height: 100% !important;\r\n        margin: 0 !important;\r\n        padding: 0 !important;\r\n        width: 100% !important;\r\n        background-color: #0c0c0c;\r\n      }\r\n\r\n      /* Estilos para dispositivos móviles */\r\n      @media screen and (max-width: 600px) {\r\n        .email-container {\r\n          width: 100% !important;\r\n          margin: auto !important;\r\n        }\r\n        .content-cell {\r\n          padding: 25px !important;\r\n        }\r\n        .header-title {\r\n          font-size: 28px !important;\r\n          line-height: 34px !important;\r\n        }\r\n        .profile-name {\r\n          font-size: 26px !important;\r\n        }\r\n      }\r\n    </style>\r\n  </head>\r\n  <body\r\n    style=\"\r\n      margin: 0 !important;\r\n      padding: 0 !important;\r\n      background-color: #0c0c0c;\r\n    \"\r\n  >\r\n    <!-- Centrador de correo -->\r\n    <center style=\"width: 100%; background-color: #0c0c0c; padding: 20px 0\">\r\n      <!--[if (gte mso 9)|(IE)]>\r\n        <table align=\"center\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"600\">\r\n        <tr>\r\n        <td align=\"center\" valign=\"top\" width=\"600\">\r\n        <![endif]-->\r\n      <table\r\n        align=\"center\"\r\n        border=\"0\"\r\n        cellpadding=\"0\"\r\n        cellspacing=\"0\"\r\n        width=\"100%\"\r\n        style=\"max-width: 600px\"\r\n        class=\"email-container\"\r\n      >\r\n        <!-- Logo y Espacio Superior -->\r\n        <tr>\r\n          <td style=\"padding: 20px 0; text-align: center\">\r\n            <img\r\n              src=\"https://assets.cdn.filesafe.space/NGuF3af79vlhAyc7PYJN/media/685474d8ad324766e3044744.png\"\r\n              width=\"100\"\r\n              alt=\"Elemento decorativo\"\r\n              style=\"width: 200px; height: auto; display: block; margin: auto\"\r\n            />\r\n          </td>\r\n        </tr>\r\n\r\n        <!-- Módulo Principal de Contenido -->\r\n        <tr>\r\n          <td\r\n            style=\"\r\n              background-color: #1a1a1a;\r\n              border-radius: 16px;\r\n              border-top: 4px solid;\r\n              border-image: linear-gradient(to right, #8e44ad, #c839a8) 1;\r\n            \"\r\n          >\r\n            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\">\r\n              <!-- Cabecera de Texto -->\r\n              <tr>\r\n                <td\r\n                  class=\"content-cell\"\r\n                  style=\"\r\n                    padding: 40px 40px 20px 40px;\r\n                    text-align: center;\r\n                    font-family: 'Inter', Arial, sans-serif;\r\n                  \"\r\n                >\r\n                  <h1\r\n                    class=\"header-title\"\r\n                    style=\"\r\n                      margin: 0;\r\n                      font-size: 34px;\r\n                      line-height: 40px;\r\n                      color: #ffffff;\r\n                      font-weight: 900;\r\n                    \"\r\n                  >\r\n                    ¡Hola {{1.nombre}}!\r\n                  </h1>\r\n                  <p\r\n                    style=\"\r\n                      margin: 10px 0 0;\r\n                      font-size: 17px;\r\n                      line-height: 25px;\r\n                      color: #cccccc;\r\n                    \"\r\n                  >\r\n                    {{4.tagline}}\r\n                  </p>\r\n                </td>\r\n              </tr>\r\n\r\n              <!-- Imagen Decorativa -->\r\n\r\n              <!-- Contenido del Diagnóstico -->\r\n              <tr>\r\n                <td\r\n                  class=\"content-cell\"\r\n                  style=\"\r\n                    padding: 20px 40px 30px 40px;\r\n                    text-align: left;\r\n                    font-family: 'Inter', Arial, sans-serif;\r\n                    font-size: 16px;\r\n                    line-height: 24px;\r\n                    color: #cccccc;\r\n                  \"\r\n                >\r\n                  <p\r\n                    style=\"\r\n                      margin: 0 0 15px;\r\n                      text-align: center;\r\n                      text-transform: uppercase;\r\n                      font-size: 14px;\r\n                      letter-spacing: 1.5px;\r\n                      color: #f39c12;\r\n                      font-weight: bold;\r\n                    \"\r\n                  >\r\n                    Tu perfil energético es:\r\n                  </p>\r\n                  <h2\r\n                    class=\"profile-name\"\r\n                    style=\"\r\n                      margin: 0 0 25px;\r\n                      text-align: center;\r\n                      font-size: 30px;\r\n                      color: #ffffff;\r\n                      font-weight: 700;\r\n                      padding-bottom: 25px;\r\n                      border-bottom: 1px solid #444444;\r\n                    \"\r\n                  >\r\n                   {{4.icon}} {{4.name}}\r\n                  </h2>\r\n                  <div\r\n                    style=\"color: #cccccc; font-size: 16px; line-height: 1.7\"\r\n                  >\r\n                    {{4.bio}} {{4.consecuencias}}\r\n                  </div>\r\n                </td>\r\n              </tr>\r\n\r\n              <!-- Llamada a la Acción (CTA) para Descarga -->\r\n              <tr>\r\n                <td\r\n                  class=\"content-cell\"\r\n                  style=\"\r\n                    padding: 30px 40px 40px 40px;\r\n                    text-align: center;\r\n                    font-family: 'Inter', Arial, sans-serif;\r\n                  \"\r\n                >\r\n                  <p\r\n                    style=\"\r\n                      margin: 0 0 25px;\r\n                      font-size: 17px;\r\n                      line-height: 25px;\r\n                      color: #ffffff;\r\n                    \"\r\n                  >\r\n                    Tu diagnóstico completo está listo para ser revelado.\r\n                  </p>\r\n                  <table\r\n                    align=\"center\"\r\n                    cellspacing=\"0\"\r\n                    cellpadding=\"0\"\r\n                    style=\"margin: auto\"\r\n                  >\r\n                    <tr>\r\n                      <td\r\n                        align=\"center\"\r\n                        style=\"\r\n                          border-radius: 50px;\r\n                          background-image: linear-gradient(\r\n                            to right,\r\n                            #8e44ad,\r\n                            #c839a8\r\n                          );\r\n                          background-color: #8e44ad;\r\n                        \"\r\n                      >\r\n                        <a\r\n                          href=\"{{download_link}}\"\r\n                          target=\"_blank\"\r\n                          style=\"\r\n                            font-size: 16px;\r\n                            font-family: 'Inter', Arial, sans-serif;\r\n                            font-weight: bold;\r\n                            color: #ffffff;\r\n                            text-decoration: none;\r\n                            border-radius: 50px;\r\n                            padding: 15px 35px;\r\n                            display: inline-block;\r\n                          \"\r\n                        >\r\n                          Descargar mi Diagnóstico PDF\r\n                        </a>\r\n                      </td>\r\n                    </tr>\r\n                  </table>\r\n                </td>\r\n              </tr>\r\n            </table>\r\n          </td>\r\n        </tr>\r\n        <!-- Espacio en blanco inferior para que no haya footer -->\r\n        <tr>\r\n          <td style=\"padding: 30px 0\"></td>\r\n        </tr>\r\n      </table>\r\n      <!--[if (gte mso 9)|(IE)]>\r\n        </td>\r\n        </tr>\r\n        </table>\r\n        <![endif]-->\r\n    </center>\r\n  </body>\r\n</html>\r\n",
+                "subject": "¡Hola {{1.nombre}}! Tu Diagnóstico Energético está listo.",
+                "attachments": []
+            },
+            "metadata": {
+                "designer": {
+                    "x": 1675,
+                    "y": -4
+                },
+                "restore": {
+                    "expect": {
+                        "cc": {
+                            "mode": "chose"
+                        },
+                        "to": {
+                            "mode": "chose",
+                            "items": [
+                                null
+                            ]
+                        },
+                        "bcc": {
+                            "mode": "chose"
+                        },
+                        "attachments": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "account": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "google-restricted"
+                            },
+                            "label": "magos (digitalmagos.marketing@gmail.com)"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "account",
+                        "type": "account:google-restricted",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "from",
+                        "type": "text",
+                        "label": "From"
+                    },
+                    {
+                        "name": "to",
+                        "spec": {
+                            "name": "value",
+                            "type": "email",
+                            "label": "Email address",
+                            "required": true
+                        },
+                        "type": "array",
+                        "label": "To",
+                        "required": true
+                    },
+                    {
+                        "name": "subject",
+                        "type": "text",
+                        "label": "Subject"
+                    },
+                    {
+                        "name": "html",
+                        "type": "text",
+                        "label": "Content"
+                    },
+                    {
+                        "name": "attachments",
+                        "spec": [
+                            {
+                                "name": "fileName",
+                                "type": "filename",
+                                "label": "File name",
+                                "required": true,
+                                "semantic": "file:name"
+                            },
+                            {
+                                "name": "data",
+                                "type": "buffer",
+                                "label": "Data",
+                                "required": true,
+                                "semantic": "file:data"
+                            },
+                            {
+                                "name": "cid",
+                                "type": "text",
+                                "label": "Content-ID"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Attachments"
+                    },
+                    {
+                        "name": "cc",
+                        "spec": {
+                            "name": "value",
+                            "type": "email",
+                            "label": "Email address"
+                        },
+                        "type": "array",
+                        "label": "Copy recipient"
+                    },
+                    {
+                        "name": "bcc",
+                        "spec": {
+                            "name": "value",
+                            "type": "email",
+                            "label": "Email address"
+                        },
+                        "type": "array",
+                        "label": "Blind copy recipient"
+                    }
+                ]
+            }
+        }
+    ],
+    "metadata": {
+        "instant": true,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "us2.make.com",
+        "notes": []
+    }
+}

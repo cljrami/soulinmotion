@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Tu Diagnóstico Energético está listo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Estilos generales y para clientes que no soportan CSS en el head */
+      body,
+      table,
+      td,
+      a {
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+      }
+      table,
+      td {
+        mso-table-lspace: 0pt;
+        mso-table-rspace: 0pt;
+      }
+      img {
+        -ms-interpolation-mode: bicubic;
+        border: 0;
+        height: auto;
+        line-height: 100%;
+        outline: none;
+        text-decoration: none;
+      }
+      table {
+        border-collapse: collapse !important;
+      }
+      body {
+        height: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        background-color: #0c0c0c;
+      }
+
+      /* Estilos para dispositivos móviles */
+      @media screen and (max-width: 600px) {
+        .email-container {
+          width: 100% !important;
+          margin: auto !important;
+        }
+        .content-cell {
+          padding: 25px !important;
+        }
+        .header-title {
+          font-size: 28px !important;
+          line-height: 34px !important;
+        }
+        .profile-name {
+          font-size: 26px !important;
+        }
+      }
+    </style>
+  </head>
+  <body
+    style="
+      margin: 0 !important;
+      padding: 0 !important;
+      background-color: #0c0c0c;
+    "
+  >
+    <!-- Centrador de correo -->
+    <center style="width: 100%; background-color: #0c0c0c; padding: 20px 0">
+      <!--[if (gte mso 9)|(IE)]>
+        <table align="center" border="0" cellspacing="0" cellpadding="0" width="600">
+        <tr>
+        <td align="center" valign="top" width="600">
+        <![endif]-->
+      <table
+        align="center"
+        border="0"
+        cellpadding="0"
+        cellspacing="0"
+        width="100%"
+        style="max-width: 600px"
+        class="email-container"
+      >
+        <!-- Logo y Espacio Superior -->
+        <tr>
+          <td style="padding: 20px 0; text-align: center">
+            <img
+              src="https://assets.cdn.filesafe.space/NGuF3af79vlhAyc7PYJN/media/685474d8ad324766e3044744.png"
+              width="100"
+              alt="Elemento decorativo"
+              style="width: 200px; height: auto; display: block; margin: auto"
+            />
+          </td>
+        </tr>
+
+        <!-- Módulo Principal de Contenido -->
+        <tr>
+          <td
+            style="
+              background-color: #1a1a1a;
+              border-radius: 16px;
+              border-top: 4px solid;
+              border-image: linear-gradient(to right, #8e44ad, #c839a8) 1;
+            "
+          >
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+              <!-- Cabecera de Texto -->
+              <tr>
+                <td
+                  class="content-cell"
+                  style="
+                    padding: 40px 40px 20px 40px;
+                    text-align: center;
+                    font-family: 'Inter', Arial, sans-serif;
+                  "
+                >
+                  <h1
+                    class="header-title"
+                    style="
+                      margin: 0;
+                      font-size: 34px;
+                      line-height: 40px;
+                      color: #ffffff;
+                      font-weight: 900;
+                    "
+                  >
+                    ¡Hola {{1.nombre}}!
+                  </h1>
+                  <p
+                    style="
+                      margin: 10px 0 0;
+                      font-size: 17px;
+                      line-height: 25px;
+                      color: #cccccc;
+                    "
+                  >
+                    {{4.tagline}}
+                  </p>
+                </td>
+              </tr>
+
+              <!-- Imagen Decorativa -->
+
+              <!-- Contenido del Diagnóstico -->
+              <tr>
+                <td
+                  class="content-cell"
+                  style="
+                    padding: 20px 40px 30px 40px;
+                    text-align: left;
+                    font-family: 'Inter', Arial, sans-serif;
+                    font-size: 16px;
+                    line-height: 24px;
+                    color: #cccccc;
+                  "
+                >
+                  <p
+                    style="
+                      margin: 0 0 15px;
+                      text-align: center;
+                      text-transform: uppercase;
+                      font-size: 14px;
+                      letter-spacing: 1.5px;
+                      color: #f39c12;
+                      font-weight: bold;
+                    "
+                  >
+                    Tu perfil energético es:
+                  </p>
+                  <h2
+                    class="profile-name"
+                    style="
+                      margin: 0 0 25px;
+                      text-align: center;
+                      font-size: 30px;
+                      color: #ffffff;
+                      font-weight: 700;
+                      padding-bottom: 25px;
+                      border-bottom: 1px solid #444444;
+                    "
+                  >
+                    {{4.name}}
+                  </h2>
+                  <div
+                    style="color: #cccccc; font-size: 16px; line-height: 1.7"
+                  >
+                    {{4.bio}} {{4.consecuencias}}
+                  </div>
+                </td>
+              </tr>
+
+              <!-- Llamada a la Acción (CTA) para Descarga -->
+              <tr>
+                <td
+                  class="content-cell"
+                  style="
+                    padding: 30px 40px 40px 40px;
+                    text-align: center;
+                    font-family: 'Inter', Arial, sans-serif;
+                  "
+                >
+                  <p
+                    style="
+                      margin: 0 0 25px;
+                      font-size: 17px;
+                      line-height: 25px;
+                      color: #ffffff;
+                    "
+                  >
+                    Tu diagnóstico completo está listo para ser revelado.
+                  </p>
+                  <table
+                    align="center"
+                    cellspacing="0"
+                    cellpadding="0"
+                    style="margin: auto"
+                  >
+                    <tr>
+                      <td
+                        align="center"
+                        style="
+                          border-radius: 50px;
+                          background-image: linear-gradient(
+                            to right,
+                            #8e44ad,
+                            #c839a8
+                          );
+                          background-color: #8e44ad;
+                        "
+                      >
+                        <a
+                          href="{{download_link}}"
+                          target="_blank"
+                          style="
+                            font-size: 16px;
+                            font-family: 'Inter', Arial, sans-serif;
+                            font-weight: bold;
+                            color: #ffffff;
+                            text-decoration: none;
+                            border-radius: 50px;
+                            padding: 15px 35px;
+                            display: inline-block;
+                          "
+                        >
+                          Descargar mi Diagnóstico PDF
+                        </a>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <!-- Espacio en blanco inferior para que no haya footer -->
+        <tr>
+          <td style="padding: 30px 0"></td>
+        </tr>
+      </table>
+      <!--[if (gte mso 9)|(IE)]>
+        </td>
+        </tr>
+        </table>
+        <![endif]-->
+    </center>
+  </body>
+</html>

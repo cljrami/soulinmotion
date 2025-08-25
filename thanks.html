@@ -389,7 +389,9 @@
     </div>
 
     <div id="main-content">
-      <div class="main-container"></div>
+      <div class="main-container">
+        <!-- El contenido se generará aquí con JavaScript -->
+      </div>
     </div>
 
     <script>
@@ -425,11 +427,23 @@
           return;
         }
 
+        // --- CORRECCIÓN 1: Nombres de perfiles actualizados para que coincidan con el flujo ---
         const icons = {
-          "CEO con Ritmo Cortado": "🧠",
-          "Líder Inflamada sin Pausas": "🔥",
-          "Ejecutivo/a Ansioso/a": "🌙",
-          "Power Performer al Borde": "⚡️",
+          "CEO Neurofatigado": "🧠",
+          "Directivo Inflamado": "🔥",
+          "Estratega en Modo Alerta": "🌙",
+          "Líder en Saturación": "⚡️",
+        };
+
+        // --- CORRECCIÓN 2: Función para renderizar el plan de acción como una lista HTML ---
+        const renderPlan = (planData) => {
+          if (Array.isArray(planData)) {
+            return `<ol class="plan-steps">${planData
+              .map((step) => `<li>${step}</li>`)
+              .join("")}</ol>`;
+          }
+          // Fallback por si 'plan' no es un array
+          return `<p>${planData || "Contenido no disponible."}</p>`;
         };
 
         mainContainer.innerHTML = `
@@ -449,29 +463,31 @@
                             <button class="tab-link" onclick="openTab(event, 'biohack')"><i class="fas fa-pills"></i> <span>Biohack</span></button>
                             <button class="tab-link" onclick="openTab(event, 'plan')"><i class="fas fa-clipboard-list"></i> <span>Plan de Acción</span></button>
                         </div>
-                        <div id="bio" class="tab-content">${(
+                        <div id="bio" class="tab-content">${
                           data.bio || "Contenido no disponible."
-                        ).replace(/\n/g, "<br>")}</div>
-                        <div id="consecuencias" class="tab-content">${(
+                        }</div>
+                        <div id="consecuencias" class="tab-content"><p>${(
                           data.consecuencias || "Contenido no disponible."
-                        ).replace(/\n/g, "<br>")}</div>
-                        <div id="biohack" class="tab-content">${(
-                          data.biohack || "Contenido no disponible."
-                        ).replace(/\n/g, "<br>")}</div>
-                        <div id="plan" class="tab-content">${(
-                          data.plan || "Contenido no disponible."
-                        ).replace(/\n/g, "<br>")}</div>
+                        ).replace(/\n/g, "<br>")}</p></div>
+                        <!-- CORRECCIÓN 3: La pestaña Biohack ahora muestra el ingrediente clave -->
+                        <div id="biohack" class="tab-content"><div class="stat-box"><strong>Ingrediente Clave:</strong> ${
+                          data.ingredient || "No especificado."
+                        }</div></div>
+                        <div id="plan" class="tab-content">${renderPlan(
+                          data.plan
+                        )}</div>
                     </div>
                 </div>
                 <div class="cta-section">
-                    <h2>¿Quieres empezar con el suplemento correcto y mi guía para aplicarlo bien?</h2>
-                    <p class="cta-subtitle">🎁 Incluye producto + clase grabada + plan de 7 días</p>
-                    <a href="https://soulinmotion.empoderamientoesencial.com/salespage" class="cta-button">👉 Activa tu energía real ahora</a>
+                    <h2>¿Quieres conocer el siguiente paso exacto para transformar tu energía… según tu resultado?</h2>
+                    <p class="cta-subtitle">🎁 Alina preparó una experiencia personalizada para ayudarte a comenzar sin cambiar tu vida entera.</p>
+                    <a href="https://soulinmotion.empoderamientoesencial.com/salespage" class="cta-button">👉 Descúbrela ahora</a>
                 </div>
                 <footer class="footer">
                     <p>Copyrights 2025 | SOUL IN MOTION™ | Terms & Conditions</p>
                 </footer>
             `;
+        // Activar la primera pestaña por defecto
         const firstTabLink = document.querySelector(".tab-link");
         if (firstTabLink) firstTabLink.click();
       }
